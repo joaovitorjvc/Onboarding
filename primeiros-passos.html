@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primeiros Passos - NuageHub</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Estilo editorial sem blocos fechados */
+        .article-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+        }
+
+        .topic-section {
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+            padding-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .topic-section:last-child {
+            border-bottom: none;
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .topic-number {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            font-family: monospace;
+            letter-spacing: 0.05em;
+        }
+
+        .topic-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        .subtopic {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding-left: 1.25rem;
+            border-left: 2px solid rgba(99, 102, 241, 0.35);
+            transition: border-color 0.2s;
+        }
+
+        .subtopic:hover {
+            border-left-color: var(--primary-light);
+        }
+
+        .subtopic-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+
+        .subtopic-desc {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #cbd5e1;
+        }
+
+        .subtopic-desc strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .competency-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .competency-item {
+            font-size: 0.975rem;
+            line-height: 1.65;
+            color: #cbd5e1;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .competency-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.65rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+        }
+
+        .competency-item strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .links-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .text-link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #f8fafc;
+            transition: all 0.2s ease;
+        }
+
+        .text-link-item:hover {
+            background: rgba(30, 41, 59, 0.7);
+            border-color: rgba(99, 102, 241, 0.5);
+            color: var(--primary-light);
+            transform: translateX(4px);
+        }
+
+        .text-link-item span {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .text-link-item small {
+            color: #94a3b8;
+            font-size: 0.825rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-glow"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i data-lucide="sparkles"></i></div>
+                <div class="logo-text">Nuage<span>Hub</span></div>
+            </a>
+
+            <nav class="nav-bar">
+                <a href="index.html" class="nav-btn"><i data-lucide="home"></i><span>Página Inicial</span></a>
+                <a href="primeiros-passos.html" class="nav-btn active"><i data-lucide="compass"></i><span>Primeiros
+                        passos</span></a>
+                <a href="plataformas.html" class="nav-btn"><i data-lucide="layers"></i><span>Plataformas</span></a>
+                <a href="playbook.html" class="nav-btn"><i data-lucide="book-open"></i><span>Playbook</span></a>
+            </nav>
+
+            <div class="user-badge">Novo SDR</div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO EDITORIAL FLUIDO -->
+    <main class="article-wrap">
+
+        <!-- Hero / Intro -->
+        <section style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div class="pill-badge" style="width: fit-content;">
+                <i data-lucide="compass"></i>
+                <span>Guia do Colaborador</span>
+            </div>
+            <h1 class="hero-title" style="font-size: 2.75rem; text-align: left;">Primeiros Passos</h1>
+            <p class="hero-description" style="text-align: left; font-size: 1.1rem;">
+                Seu guia de integração detalhado com o posicionamento da empresa, atribuições do seu papel comercial e
+                acessos fundamentais.
+            </p>
+        </section>
+
+        <!-- TÓPICO 1: NUAGEIT -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <span class="topic-number">01</span>
+                <h2 class="topic-title">NuageIT</h2>
+            </div>
+
+            <!-- 1.1 O que somos -->
+            <div class="subtopic">
+                <h3 class="subtopic-title">O que somos</h3>
+                <p class="subtopic-desc">
+                    A <strong>NuageIT é uma empresa de engenharia e consultoria em tecnologia, especializada em Cloud,
+                        principalmente no ecossistema AWS</strong>, com atuação sólida em ambientes corporativos e
+                    projetos complexos de transformação digital.
+                </p>
+            </div>
+
+            <!-- 1.2 O que fazemos -->
+            <div class="subtopic">
+                <h3 class="subtopic-title">O que fazemos</h3>
+                <p class="subtopic-desc">
+                    Ajudamos empresas a <strong>construir, modernizar, proteger, otimizar e operar</strong> sua
+                    infraestrutura e seus produtos digitais na nuvem, com foco em excelência técnica, resiliência e
+                    inovação através da AWS.
+                </p>
+            </div>
+
+            <!-- 1.3 Nossas competências -->
+            <div class="subtopic">
+                <h3 class="subtopic-title">Nossas Competências</h3>
+                <p class="subtopic-desc">
+                    Como parceiros especializados AWS, as principais competências da <a
+                        href="https://nuageit.com.br/aws-partner-network/" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--primary-light); text-decoration: underline;">NuageIT</a> abrangem as
+                    seguintes frentes de atuação:
+                </p>
+                <ul class="competency-list">
+                    <li class="competency-item">
+                        <strong>Migração (Migration):</strong> Especialização em mover infraestruturas locais
+                        (<em>on-premises</em>) ou de outras nuvens para a AWS com segurança e o mínimo de impacto
+                        operacional.
+                    </li>
+                    <li class="competency-item">
+                        <strong>DevOps:</strong> Fluidez na automação de processos, integração e entrega contínua
+                        (CI/CD) e infraestrutura como código (IaC).
+                    </li>
+                    <li class="competency-item">
+                        <strong>Segurança (Security):</strong> Garantia de ambientes blindados, em total conformidade
+                        com normas regulatórias e boas práticas de governança.
+                    </li>
+                    <li class="competency-item">
+                        <strong>Dados e Análises (Data & Analytics):</strong> Criação de estruturas como <em>Data
+                            Lakes</em> e arquiteturas modernas de análise para decisões orientadas a dados.
+                    </li>
+                    <li class="competency-item">
+                        <strong>Inteligência Artificial (GenAI / IA):</strong> Desenvolvimento e implementação de
+                        soluções de inteligência artificial generativa aplicada ao negócio.
+                    </li>
+                    <li class="competency-item">
+                        <strong>FinOps:</strong> Gestão e visibilidade de custos, monitoramento inteligente de gastos em
+                        nuvem e otimização financeira de recursos.
+                    </li>
+                    <li class="competency-item">
+                        <strong>Redes (Networking):</strong> Estruturação de conectividade complexa, interconexões
+                        híbridas e arquitetura de redes seguras na nuvem.
+                    </li>
+                    <li class="competency-item">
+                        <strong>Operações em Nuvem (Cloud Operations):</strong> Gerenciamento, monitoramento 24/7 e
+                        sustentação contínua de ambientes (<em>Managed Service Provider</em>).
+                    </li>
+                    <li class="competency-item">
+                        <strong>Educação (Education):</strong> Atendimento e frameworks desenhados especificamente para
+                        o setor de ensino, instituições acadêmicas e plataformas de <em>e-learning</em>.
+                    </li>
+                    <li class="competency-item">
+                        <strong>SMB (Small and Medium Business):</strong> Atendimento consultivo e desenho de
+                        arquiteturas sob medida para o mercado de pequenas e médias empresas.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TÓPICO 2: PAPEL DO SDR -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <span class="topic-number">02</span>
+                <h2 class="topic-title">Papel do SDR & Rotina</h2>
+            </div>
+
+            <!-- 2.1 Papel do SDR -->
+            <div class="subtopic">
+                <h3 class="subtopic-title">Papel do SDR</h3>
+                <p class="subtopic-desc">
+                    O SDR tem a responsabilidade de realizar o <strong>primeiro contato com um lead</strong> para
+                    apresentar nossa empresa e os nossos serviços em nuvem, fazendo a qualificação inicial e conduzindo
+                    o agendamento de uma reunião com o <strong>Account Manager (AM)</strong> responsável.
+                </p>
+            </div>
+
+            <!-- 2.2 Acessos e credenciais -->
+            <div class="subtopic">
+                <h3 class="subtopic-title">Acessos às Credenciais</h3>
+                <p class="subtopic-desc">
+                    No seu primeiro dia, você receberá a liberação de acesso às ferramentas de trabalho:
+                    <strong>ClickUp, Plataforma NuageIT, Zoho e E-mail Corporativo</strong>. Esses acessos são
+                    centralizados e encaminhados pelo <strong>Sharles</strong> ou pela <strong>Santuzza</strong>.
+                </p>
+            </div>
+
+            <!-- 2.3 Obrigações iniciais -->
+            <div class="subtopic">
+                <h3 class="subtopic-title">Obrigações Iniciais</h3>
+                <p class="subtopic-desc">
+                    Como compromisso obrigatório de rampa técnica e alinhamento de processos, é mandatório:
+                </p>
+                <ul class="competency-list">
+                    <li class="competency-item">
+                        <strong>Treinamentos L1:</strong> Realizar e concluir integralmente todos os treinamentos do
+                        nível <strong>L1 na Plataforma Nuage</strong>. Esse conteúdo é a base para o entendimento
+                        técnico dos nossos serviços e argumentação com potenciais clientes.
+                    </li>
+                    <li class="competency-item">
+                        <strong>Onboardings com o RH:</strong> Participar ativamente das sessões de integração agendadas
+                        pelo RH para alinhamento da cultura, regras internas e dúvidas gerais.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TÓPICO 3: LINKS IMPORTANTES & PAGAMENTO -->
+        <section class="topic-section">
+            <div class="topic-header">
+                <span class="topic-number">03</span>
+                <h2 class="topic-title">Links Importantes & Pagamento</h2>
+            </div>
+
+            <!-- 3.1 Links Importantes -->
+            <div class="subtopic">
+                <h3 class="subtopic-title">Links Rápidos</h3>
+                <p class="subtopic-desc">
+                    Acesse diretamente os portais que farão parte da sua rotina diária:
+                </p>
+                <div class="links-group">
+                    <a href="https://plataforma.onnuageit.cloud/" target="_blank" rel="noopener noreferrer"
+                        class="text-link-item">
+                        <div>
+                            <span>Plataforma Nuage</span>
+                            <p><small>plataforma.onnuageit.cloud (Treinamentos L1 e rotinas internas)</small></p>
+                        </div>
+                        <i data-lucide="external-link" class="icon-status"></i>
+                    </a>
+
+                    <a href="https://nuageit.clickup.com/" target="_blank" rel="noopener noreferrer"
+                        class="text-link-item">
+                        <div>
+                            <span>ClickUp NuageIT</span>
+                            <p><small>nuageit.clickup.com (Gestão de tarefas, rotinas e projetos)</small></p>
+                        </div>
+                        <i data-lucide="external-link" class="icon-status"></i>
+                    </a>
+
+                    <div class="text-link-item" style="opacity: 0.7; cursor: default;">
+                        <div>
+                            <span>Zoho CRM</span>
+                            <p><small>Ambiente de gestão de leads e oportunidades (link em configuração)</small></p>
+                        </div>
+                        <i data-lucide="clock" class="icon-status"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3.2 Instruções de Pagamento -->
+            <div class="subtopic">
+                <h3 class="subtopic-title">Instruções de Pagamento (Contratos PJ)</h3>
+                <p class="subtopic-desc">
+                    Para profissionais com contrato na modalidade PJ, as notas fiscais referentes à prestação de
+                    serviços devem ser emitidas mensalmente e submetidas através do canal oficial do Financeiro:
+                </p>
+                <div style="margin-top: 0.5rem;">
+                    <a href="https://forms.clickup.com/9013142744/f/8ckk96r-176373/FNFBPF6K2E14ZV5TJX" target="_blank"
+                        rel="noopener noreferrer" class="btn-primary"
+                        style="display: inline-flex; text-decoration: none;">
+                        <i data-lucide="receipt"></i>
+                        Anexar Nota Fiscal no Formulário ClickUp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 NuageIT • Portal de Integração & Rampa de Novos Colaboradores</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

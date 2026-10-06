@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NuageHub - Portal de Onboarding</title>
+
+    <!-- Arquivo CSS Externo -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Biblioteca de Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Efeito de iluminação de fundo -->
+    <div class="bg-glow"></div>
+
+    <!-- HEADER COM OS 4 BOTÕES -->
+    <header class="header">
+        <div class="container header-inner">
+
+            <!-- Brand / Logo -->
+            <div class="logo" onclick="switchTab('home')">
+                <div class="logo-icon">
+                    <i data-lucide="sparkles"></i>
+                </div>
+                <div class="logo-text">Nuage<span>Hub</span></div>
+            </div>
+
+            <!-- Navegação com os 4 botões -->
+            <nav class="nav-bar">
+                <a href="index.html" class="nav-btn active">
+                    <i data-lucide="home"></i>
+                    <span>Página Inicial</span>
+                </a>
+                <a href="primeiros-passos.html" class="nav-btn">
+                    <i data-lucide="compass"></i>
+                    <span>Primeiros passos</span>
+                </a>
+                <a href="plataformas.html" class="nav-btn">
+                    <i data-lucide="layers"></i>
+                    <span>Plataformas</span>
+                </a>
+                <a href="playbook.html" class="nav-btn">
+                    <i data-lucide="book-open"></i>
+                    <span>Playbook</span>
+                </a>
+            </nav>
+
+
+            <!-- Badge de identificação -->
+            <div class="user-badge">Novo SDR</div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL: PÁGINA INICIAL -->
+    <main id="tab-home" class="container main-content">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="pill-badge">
+                <i data-lucide="award"></i>
+                <span>Boas-vindas ao time!</span>
+            </div>
+
+            <h1 class="hero-title">
+                Sua jornada de sucesso <br />
+                <span class="gradient-text">começa aqui e agora.</span>
+            </h1>
+
+            <p class="hero-description">
+                Portal central de integração da equipe. Siga o roteiro de primeiros passos, acesse as plataformas do dia
+                a dia e consulte o playbook tático para acelerar seus resultados.
+            </p>
+
+            <div class="hero-actions">
+                <a href="primeiros-passos.html" class="btn-primary" style="text-decoration: none;">
+                    Começar pelos Primeiros Passos
+                    <i data-lucide="arrow-right"></i>
+                </a>
+                <a href="playbook.html" class="btn-secondary" style="text-decoration: none;">
+                    Abrir Playbook SDR
+                </a>
+            </div>
+        </section>
+
+        <!-- Cards dos 3 Módulos -->
+        <section class="cards-grid">
+
+            <!-- Módulo 1: Primeiros Passos -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon icon-blue">
+                            <i data-lucide="compass"></i>
+                        </div>
+                        <span class="card-tag">Início rápido</span>
+                    </div>
+                    <h3 class="card-title">Primeiros Passos</h3>
+                    <p class="card-subtitle">Roteiro dos primeiros 30 dias</p>
+                    <p class="card-description">
+                        Checklist guiado com rotinas de integração, alinhamento cultural e expectativas de evolução.
+                    </p>
+                </div>
+                <button onclick="switchTab('steps')" class="card-footer-btn">
+                    <span>Acessar conteúdo</span>
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Módulo 2: Plataformas -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon icon-purple">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <span class="card-tag">Guia técnico</span>
+                    </div>
+                    <h3 class="card-title">Plataformas</h3>
+                    <p class="card-subtitle">Stack de produtividade & gestão</p>
+                    <p class="card-description">
+                        Tutoriais passo a passo, permissões e práticas recomendadas no ClickUp, CRM e canais internos.
+                    </p>
+                </div>
+                <button onclick="switchTab('platforms')" class="card-footer-btn">
+                    <span>Acessar conteúdo</span>
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Módulo 3: Playbook -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon icon-teal">
+                            <i data-lucide="book-open"></i>
+                        </div>
+                        <span class="card-tag">Comercial</span>
+                    </div>
+                    <h3 class="card-title">Playbook</h3>
+                    <p class="card-subtitle">Táticas de prospecção para SDRs</p>
+                    <p class="card-description">
+                        Cadências de outbound, scripts para cold calls, quebra de objeções e metodologias de
+                        qualificação.
+                    </p>
+                </div>
+                <button onclick="switchTab('playbook')" class="card-footer-btn">
+                    <span>Acessar conteúdo</span>
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+
+        </section>
+
+        <!-- Checklist Interativo -->
+        <section class="checklist-panel">
+            <div class="checklist-header">
+                <div>
+                    <span class="section-label">Cronograma</span>
+                    <h3 class="section-title">Checklist Inicial</h3>
+                </div>
+                <div class="meta-pill">
+                    <i data-lucide="clock"></i>
+                    <span>Meta: 1ª Semana</span>
+                </div>
+            </div>
+
+            <div class="checklist-grid">
+                <div class="check-item done" onclick="toggleCheck(this)">
+                    <div class="check-top">
+                        <span class="day-badge">Dia 1</span>
+                        <i data-lucide="check-circle-2" class="icon-status"></i>
+                    </div>
+                    <h4 class="check-title">Boas-vindas & Setup Essencial</h4>
+                    <p class="check-desc">Configuração de e-mail corporativo, acesso ao ClickUp e canais oficiais.</p>
+                </div>
+
+                <div class="check-item" onclick="toggleCheck(this)">
+                    <div class="check-top">
+                        <span class="day-badge">Dia 2-3</span>
+                        <i data-lucide="check-circle-2" class="icon-status"></i>
+                    </div>
+                    <h4 class="check-title">Imersão nas Plataformas</h4>
+                    <p class="check-desc">Visão das ferramentas, estrutura do CRM e pipelines operacionais.</p>
+                </div>
+
+                <div class="check-item" onclick="toggleCheck(this)">
+                    <div class="check-top">
+                        <span class="day-badge">Semana 1</span>
+                        <i data-lucide="check-circle-2" class="icon-status"></i>
+                    </div>
+                    <h4 class="check-title">Playbook de Vendas & SDR</h4>
+                    <p class="check-desc">Estudo de discursos de vendas, simulação e qualificação prática.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ABAS SECUNDÁRIAS -->
+    <main id="tab-secondary" class="container secondary-view hidden">
+        <div id="secondary-icon" class="secondary-icon-wrap">
+            <i data-lucide="compass"></i>
+        </div>
+        <div>
+            <span class="section-label">Módulo em visualização</span>
+            <h2 id="secondary-title" class="section-title" style="margin-top: 0.5rem;">Título</h2>
+            <p id="secondary-desc" class="hero-description" style="margin-top: 0.5rem;"></p>
+        </div>
+        <button onclick="switchTab('home')" class="btn-primary">
+            <i data-lucide="home"></i>
+            Voltar para a Página Inicial
+        </button>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 NuageIT • Portal de Integração & Rampa de Novos Colaboradores</p>
+    </footer>
+
+    <!-- JAVASCRIPT DE NAVEGAÇÃO -->
+    <script>
+        const navItems = {
+            home: { title: "Página Inicial" },
+            steps: {
+                title: "Primeiros Passos",
+                desc: "Roteiro dos primeiros dias de integração, configuração de acessos e checklist do colaborador.",
+                icon: "compass"
+            },
+            platforms: {
+                title: "Plataformas Operacionais",
+                desc: "Tutoriais das ferramentas utilizadas: ClickUp, CRM, canais internos e produtividade.",
+                icon: "layers"
+            },
+            playbook: {
+                title: "Playbook para SDRs",
+                desc: "Metodologia completa de prospecção outbound, scripts de cold call, cadências e qualificação.",
+                icon: "book-open"
+            }
+        };
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById('nav-' + tabId);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            const homeTab = document.getElementById('tab-home');
+            const secondaryTab = document.getElementById('tab-secondary');
+
+            if (tabId === 'home') {
+                homeTab.classList.remove('hidden');
+                secondaryTab.classList.add('hidden');
+            } else {
+                homeTab.classList.add('hidden');
+                secondaryTab.classList.remove('hidden');
+
+                const info = navItems[tabId];
+                document.getElementById('secondary-title').textContent = info.title;
+                document.getElementById('secondary-desc').textContent = info.desc;
+                document.getElementById('secondary-icon').innerHTML = `<i data-lucide="${info.icon}"></i>`;
+            }
+
+            lucide.createIcons();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleCheck(card) {
+            card.classList.toggle('done');
+        }
+
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

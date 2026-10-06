@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plataformas - NuageHub</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Estilos editoriais fluidos */
+    .article-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .topic-section {
+      border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+      padding-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .topic-section:last-child {
+      border-bottom: none;
+    }
+
+    .topic-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .topic-number {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      font-family: monospace;
+      letter-spacing: 0.05em;
+    }
+
+    .topic-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .subtopic {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding-left: 1.25rem;
+      border-left: 2px solid rgba(99, 102, 241, 0.35);
+      transition: border-color 0.2s;
+    }
+
+    .subtopic:hover {
+      border-left-color: var(--primary-light);
+    }
+
+    .subtopic-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .subtopic-desc {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #cbd5e1;
+    }
+
+    .subtopic-desc strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .steps-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.975rem;
+      line-height: 1.65;
+      color: #cbd5e1;
+    }
+
+    .step-badge {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(79, 70, 229, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: var(--primary-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.15rem;
+    }
+
+    .platform-link-box {
+      margin-top: 0.5rem;
+      display: inline-flex;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- HEADER COM OS 4 BOTÕES -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i data-lucide="sparkles"></i></div>
+        <div class="logo-text">Nuage<span>Hub</span></div>
+      </a>
+
+      <!-- 4 Botões -->
+      <nav class="nav-bar">
+        <a href="index.html" class="nav-btn">
+          <i data-lucide="home"></i>
+          <span>Página Inicial</span>
+        </a>
+        <a href="primeiros-passos.html" class="nav-btn">
+          <i data-lucide="compass"></i>
+          <span>Primeiros passos</span>
+        </a>
+        <a href="plataformas.html" class="nav-btn active">
+          <i data-lucide="layers"></i>
+          <span>Plataformas</span>
+        </a>
+        <a href="playbook.html" class="nav-btn">
+          <i data-lucide="book-open"></i>
+          <span>Playbook</span>
+        </a>
+      </nav>
+
+      <div class="user-badge">Novo SDR</div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL: GUIA DE PLATAFORMAS -->
+  <main class="article-wrap">
+    
+    <!-- Hero / Intro -->
+    <section style="display: flex; flex-direction: column; gap: 0.75rem;">
+      <div class="pill-badge" style="width: fit-content;">
+        <i data-lucide="layers"></i>
+        <span>Stack Tecnológico & Operação</span>
+      </div>
+      <h1 class="hero-title" style="font-size: 2.75rem; text-align: left;">Plataformas</h1>
+      <p class="hero-description" style="text-align: left; font-size: 1.1rem;">
+        Passo a passo prático de configuração e rotina nas principais ferramentas utilizadas no dia a dia da NuageIT.
+      </p>
+    </section>
+
+    <!-- 01. PLATAFORMA NUAGEIT -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">01</span>
+        <h2 class="topic-title">Plataforma NuageIT</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Para que serve</h3>
+        <p class="subtopic-desc">
+          É o nosso portal interno de desenvolvimento técnico e certificações corporativas. Aqui você realizará todos os <strong>treinamentos obrigatórios do nível L1</strong> para dominar o catálogo de serviços em nuvem AWS e os pilares de entrega da NuageIT.
+        </p>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Passo a passo de acesso</h3>
+        <ul class="steps-list">
+          <li class="step-item">
+            <span class="step-badge">1</span>
+            <div>
+              <strong>Acesse o portal:</strong> Entre em <a href="https://plataforma.onnuageit.cloud/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-light); text-decoration: underline;">plataforma.onnuageit.cloud</a>.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-badge">2</span>
+            <div>
+              <strong>Autenticação:</strong> Insira seu e-mail institucional e a credencial enviada por Sharles ou Santuzza.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-badge">3</span>
+            <div>
+              <strong>Inicie a Trilha L1:</strong> Navegue até a aba de cursos e conclua a trilha de fundamentos de Cloud e competências comerciais.
+            </div>
+          </li>
+        </ul>
+        <div class="platform-link-box">
+          <a href="https://plataforma.onnuageit.cloud/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">
+            <i data-lucide="external-link"></i>
+            Abrir Plataforma Nuage
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. CLICKUP -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">02</span>
+        <h2 class="topic-title">ClickUp</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Para que serve</h3>
+        <p class="subtopic-desc">
+          O ClickUp é o coração da gestão operacional da NuageIT. Nele organizamos rotinas diárias, alinhamentos semanais, documentações internas de processos e formulários administrativos (como o envio de NF).
+        </p>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Passo a passo de configuração</h3>
+        <ul class="steps-list">
+          <li class="step-item">
+            <span class="step-badge">1</span>
+            <div>
+              <strong>Aceite o convite:</strong> Abra a mensagem de convite recebida no seu e-mail corporativo e clique para ativar sua conta no workspace da <em>NuageIT</em>.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-badge">2</span>
+            <div>
+              <strong>Configuração de perfil:</strong> Adicione sua foto, configure fuso horário e revise as preferências de notificação para acompanhar as tarefas atribuídas a você.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-badge">3</span>
+            <div>
+              <strong>Navegue pelo seu espaço:</strong> Localize o espaço do time comercial para visualizar seus quadros e documentos de apoio.
+            </div>
+          </li>
+        </ul>
+        <div class="platform-link-box">
+          <a href="https://nuageit.clickup.com/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">
+            <i data-lucide="external-link"></i>
+            Acessar ClickUp NuageIT
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. ZOHO CRM -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">03</span>
+        <h2 class="topic-title">Zoho CRM</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Para que serve</h3>
+        <p class="subtopic-desc">
+          Plataforma de gestão comercial onde são cadastrados e enriquecidos os leads, histórico de tentativas de contato, status de qualificação e agendamentos diretos para os <strong>Account Managers (AMs)</strong>.
+        </p>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Passo a passo de rotina</h3>
+        <ul class="steps-list">
+          <li class="step-item">
+            <span class="step-badge">1</span>
+            <div>
+              <strong>Liberação de licença:</strong> Aguarde a confirmação de liberação do seu perfil de usuário de vendas no Zoho.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-badge">2</span>
+            <div>
+              <strong>Acompanhamento de leads:</strong> Acesse as visões e filtros de leads da sua fila de prospecção para iniciar as cadências.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-badge">3</span>
+            <div>
+              <strong>Registro de interações:</strong> Registre todas as anotações, motivos de perda ou avanço de etapa para o Account Manager dar sequência na reunião.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04. E-MAIL CORPORATIVO & COMUNICAÇÃO -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">04</span>
+        <h2 class="topic-title">E-mail Corporativo & Canais</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Para que serve</h3>
+        <p class="subtopic-desc">
+          Seu e-mail corporativo é o seu cartão de visitas digital perante clientes e tomadores de decisão em campanhas de prospecção outbound, além de ser a chave para o login único nas ferramentas.
+        </p>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Configuração inicial</h3>
+        <ul class="steps-list">
+          <li class="step-item">
+            <span class="step-badge">1</span>
+            <div>
+              <strong>Primeiro acesso & Senha:</strong> Acesse seu e-mail corporativo e defina uma nova senha forte com autenticação em duas etapas (2FA) ativada.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-badge">2</span>
+            <div>
+              <strong>Assinatura padrão:</strong> Aplique a assinatura oficial de e-mail da NuageIT com seu nome, cargo (SDR) e contatos.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-badge">3</span>
+            <div>
+              <strong>Canais de comunicação:</strong> Acesse os grupos de comunicação interna para tirar dúvidas em tempo real com seu gestor e time.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 NuageIT • Portal de Integração & Rampa de Novos Colaboradores</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

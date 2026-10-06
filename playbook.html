@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playbook de SDR - NuageHub</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Estilos editoriais compartilhados */
+    .article-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .topic-section {
+      border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+      padding-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .topic-section:last-child {
+      border-bottom: none;
+    }
+
+    .topic-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .topic-number {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      font-family: monospace;
+      letter-spacing: 0.05em;
+    }
+
+    .topic-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .subtopic {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding-left: 1.25rem;
+      border-left: 2px solid rgba(99, 102, 241, 0.35);
+      transition: border-color 0.2s;
+    }
+
+    .subtopic:hover {
+      border-left-color: var(--primary-light);
+    }
+
+    .subtopic-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .subtopic-desc {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #cbd5e1;
+    }
+
+    .subtopic-desc strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Lista estilizada de táticas */
+    .tactics-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .tactic-item {
+      font-size: 0.975rem;
+      line-height: 1.65;
+      color: #cbd5e1;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .tactic-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--primary-light);
+    }
+
+    .tactic-item strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Caixa de Script / Pitch */
+    .script-box {
+      margin-top: 0.5rem;
+      padding: 1.25rem;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(51, 65, 85, 0.7);
+      border-radius: 12px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #e2e8f0;
+      font-style: italic;
+      border-left: 3px solid var(--accent-cyan);
+    }
+
+    .cadence-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .cadence-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .cadence-step {
+      padding: 1rem;
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(51, 65, 85, 0.6);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .cadence-day {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cadence-action {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .cadence-detail {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i data-lucide="sparkles"></i></div>
+        <div class="logo-text">Nuage<span>Hub</span></div>
+      </a>
+
+      <!-- 4 Botões -->
+      <nav class="nav-bar">
+        <a href="index.html" class="nav-btn">
+          <i data-lucide="home"></i>
+          <span>Página Inicial</span>
+        </a>
+        <a href="primeiros-passos.html" class="nav-btn">
+          <i data-lucide="compass"></i>
+          <span>Primeiros passos</span>
+        </a>
+        <a href="plataformas.html" class="nav-btn">
+          <i data-lucide="layers"></i>
+          <span>Plataformas</span>
+        </a>
+        <a href="playbook.html" class="nav-btn active">
+          <i data-lucide="book-open"></i>
+          <span>Playbook</span>
+        </a>
+      </nav>
+
+      <div class="user-badge">Novo SDR</div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL: PLAYBOOK SDR -->
+  <main class="article-wrap">
+    
+    <!-- Hero / Intro -->
+    <section style="display: flex; flex-direction: column; gap: 0.75rem;">
+      <div class="pill-badge" style="width: fit-content;">
+        <i data-lucide="book-open"></i>
+        <span>Manual Tático de Vendas</span>
+      </div>
+      <h1 class="hero-title" style="font-size: 2.75rem; text-align: left;">Playbook de SDR</h1>
+      <p class="hero-description" style="text-align: left; font-size: 1.1rem;">
+        Metodologias de prospecção outbound, scripts de abordagem em nuvem AWS, cadências multicanal e critérios de passagem de bastão para os Account Managers (AMs).
+      </p>
+    </section>
+
+    <!-- 01. MISSÃO & POSICIONAMENTO DO SDR -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">01</span>
+        <h2 class="topic-title">Missão & ICP (Perfil de Cliente Ideal)</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Objetivo Principal</h3>
+        <p class="subtopic-desc">
+          O papel do SDR na NuageIT não é vender o projeto final, mas sim <strong>despertar interesse técnico e comercial no tomador de decisão</strong> (CTO, Head de Engenharia, Gerente de TI ou CFO) para agendar uma reunião qualificada com o nosso <strong>Account Manager (AM)</strong>.
+        </p>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Quem buscamos (ICP)</h3>
+        <ul class="tactics-list">
+          <li class="tactic-item">
+            <strong>Empresas On-Premises:</strong> Operações com infraestrutura local querendo migrar para nuvem AWS com segurança e redução de risco.
+          </li>
+          <li class="tactic-item">
+            <strong>Empresas já em Nuvem:</strong> Ambientes com gastos fora de controle (dores de FinOps), falta de automação (DevOps) ou vulnerabilidades de segurança.
+          </li>
+          <li class="tactic-item">
+            <strong>Interlocutores-chave:</strong> Diretores de TI, CTOs, Tech Leads, Gerentes de Infraestrutura e Líderes de Inovação/Dados.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 02. FLUXO DE CADÊNCIA MULTICANAL -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">02</span>
+        <h2 class="topic-title">Cadência de Prospecção Outbound</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Estrutura dos 10 Primeiros Dias</h3>
+        <p class="subtopic-desc">
+          Utilizamos uma cadência mista alternando <strong>LinkedIn, E-mail e Cold Call</strong> para maximizar as taxas de resposta e engajamento:
+        </p>
+
+        <div class="cadence-grid">
+          <div class="cadence-step">
+            <span class="cadence-day">Dia 1 • Conexão</span>
+            <span class="cadence-action">LinkedIn + Visita de Perfil</span>
+            <span class="cadence-detail">Conexão sem pitch invasivo, focado em temas de Cloud/AWS.</span>
+          </div>
+
+          <div class="cadence-step">
+            <span class="cadence-day">Dia 2 • Primeiro E-mail</span>
+            <span class="cadence-action">Cold E-mail Personalizado</span>
+            <span class="cadence-detail">Abordagem de dor específica (ex: custos AWS ou migração).</span>
+          </div>
+
+          <div class="cadence-step">
+            <span class="cadence-day">Dia 4 • Ligação Direta</span>
+            <span class="cadence-action">Cold Call Inicial</span>
+            <span class="cadence-detail">Checagem de recebimento do e-mail e gancho rápido de 30s.</span>
+          </div>
+
+          <div class="cadence-step">
+            <span class="cadence-day">Dia 7 • Interação Social</span>
+            <span class="cadence-action">Mensagem LinkedIn / InMail</span>
+            <span class="cadence-detail">Compartilhamento de case NuageIT ou competência AWS.</span>
+          </div>
+
+          <div class="cadence-step">
+            <span class="cadence-day">Dia 10 • Break-up</span>
+            <span class="cadence-action">E-mail de Despedida</span>
+            <span class="cadence-detail">Porta aberta com tom cordial liberando a caixa de entrada.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. SCRIPTS & PITCH DE ELEVADOR -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">03</span>
+        <h2 class="topic-title">Roteiro de Cold Call & Abordagem</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Pitch de Abertura (30 Segundos)</h3>
+        <p class="subtopic-desc">
+          Na ligação, seja direto, respeitoso e foque nas competências da NuageIT:
+        </p>
+        <div class="script-box">
+          "Olá [Nome], tudo bem? Aqui é o [Seu Nome], da NuageIT. Sei que você deve estar ocupado, prometo ser breve: somos parceiros de engenharia especializados em AWS e ajudamos empresas como a sua a otimizar custos de nuvem, modernizar infraestruturas e acelerar projetos DevOps. Como está o foco de vocês hoje na gestão do ambiente Cloud?"
+        </div>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Quebra de Objeções Comuns</h3>
+        <ul class="tactics-list">
+          <li class="tactic-item">
+            <strong>"Já temos uma equipe interna cuidando disso":</strong> Excelente! Nós não substituímos seu time; atuamos como braço especializado em arquiteturas avançadas, migração e auditorias de custo que aliviam a carga da sua equipe.
+          </li>
+          <li class="tactic-item">
+            <strong>"Não temos orçamento para projetos agora":</strong> Perfeito. Nossos projetos de FinOps, por exemplo, costumam gerar economia imediata na fatura AWS logo nas primeiras semanas, pagando o próprio investimento.
+          </li>
+          <li class="tactic-item">
+            <strong>"Me mande um e-mail com apresentação":</strong> Claro! Para enviar apenas o que for relevante para o seu cenário: hoje a prioridade seria reduzir custos, segurança ou migrar novas cargas?
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04. QUALIFICAÇÃO & PASSAGEM DE BASTÃO -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">04</span>
+        <h2 class="topic-title">Qualificação & Passagem para o AM</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Checklist Mínimo para Agendamento</h3>
+        <p class="subtopic-desc">
+          Antes de criar o evento na agenda do Account Manager e registrar no Zoho, garanta que levantou:
+        </p>
+        <ul class="tactics-list">
+          <li class="tactic-item">
+            <strong>Cenário Atual:</strong> Utilizam AWS, outra nuvem ou servidores locais?
+          </li>
+          <li class="tactic-item">
+            <strong>Dor ou Desafio:</strong> Qual o gargalo atual (custos altos, segurança, lentidão, projeto novo)?
+          </li>
+          <li class="tactic-item">
+            <strong>Autoridade:</strong> Quem participará da conversa (CTO, Coordenador, Gerente)?
+          </li>
+          <li class="tactic-item">
+            <strong>Registro completo:</strong> Adicione o resumo no Zoho e envie o convite com link da sala com o AM em cópia.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 NuageIT • Portal de Integração & Rampa de Novos Colaboradores</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
