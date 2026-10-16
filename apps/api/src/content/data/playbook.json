@@ -1,0 +1,208 @@
+{
+  "slug": "playbook",
+  "documentTitle": "Playbook de SDR - NuageHub",
+  "navLabel": "Playbook",
+  "hero": {
+    "variant": "page",
+    "eyebrow": "Manual Tático de Vendas",
+    "title": [[{ "text": "Playbook de SDR" }]],
+    "description": [
+      {
+        "text": "Metodologias de prospecção outbound, scripts de abordagem em nuvem AWS, cadências multicanal e critérios de passagem de bastão para os Account Managers (AMs)."
+      }
+    ]
+  },
+  "blocks": [
+    {
+      "type": "topic",
+      "number": "01",
+      "title": "Missão & ICP (Perfil de Cliente Ideal)",
+      "subtopics": [
+        {
+          "title": "Objetivo Principal",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                { "text": "O papel do SDR na NuageIT não é vender o projeto final, mas sim " },
+                { "text": "despertar interesse técnico e comercial no tomador de decisão", "strong": true },
+                {
+                  "text": " (CTO, Head de Engenharia, Gerente de TI ou CFO) para agendar uma reunião qualificada com o nosso "
+                },
+                { "text": "Account Manager (AM)", "strong": true },
+                { "text": "." }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Quem buscamos (ICP)",
+          "content": [
+            {
+              "type": "bullets",
+              "items": [
+                [
+                  { "text": "Empresas On-Premises:", "strong": true },
+                  {
+                    "text": " Operações com infraestrutura local querendo migrar para nuvem AWS com segurança e redução de risco."
+                  }
+                ],
+                [
+                  { "text": "Empresas já em Nuvem:", "strong": true },
+                  {
+                    "text": " Ambientes com gastos fora de controle (dores de FinOps), falta de automação (DevOps) ou vulnerabilidades de segurança."
+                  }
+                ],
+                [
+                  { "text": "Interlocutores-chave:", "strong": true },
+                  {
+                    "text": " Diretores de TI, CTOs, Tech Leads, Gerentes de Infraestrutura e Líderes de Inovação/Dados."
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "topic",
+      "number": "02",
+      "title": "Cadência de Prospecção Outbound",
+      "subtopics": [
+        {
+          "title": "Estrutura dos 10 Primeiros Dias",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                { "text": "Utilizamos uma cadência mista alternando " },
+                { "text": "LinkedIn, E-mail e Cold Call", "strong": true },
+                { "text": " para maximizar as taxas de resposta e engajamento:" }
+              ]
+            },
+            {
+              "type": "cadence",
+              "items": [
+                {
+                  "day": "Dia 1 • Conexão",
+                  "action": "LinkedIn + Visita de Perfil",
+                  "detail": "Conexão sem pitch invasivo, focado em temas de Cloud/AWS."
+                },
+                {
+                  "day": "Dia 2 • Primeiro E-mail",
+                  "action": "Cold E-mail Personalizado",
+                  "detail": "Abordagem de dor específica (ex: custos AWS ou migração)."
+                },
+                {
+                  "day": "Dia 4 • Ligação Direta",
+                  "action": "Cold Call Inicial",
+                  "detail": "Checagem de recebimento do e-mail e gancho rápido de 30s."
+                },
+                {
+                  "day": "Dia 7 • Interação Social",
+                  "action": "Mensagem LinkedIn / InMail",
+                  "detail": "Compartilhamento de case NuageIT ou competência AWS."
+                },
+                {
+                  "day": "Dia 10 • Break-up",
+                  "action": "E-mail de Despedida",
+                  "detail": "Porta aberta com tom cordial liberando a caixa de entrada."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "topic",
+      "number": "03",
+      "title": "Roteiro de Cold Call & Abordagem",
+      "subtopics": [
+        {
+          "title": "Pitch de Abertura (30 Segundos)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [{ "text": "Na ligação, seja direto, respeitoso e foque nas competências da NuageIT:" }]
+            },
+            {
+              "type": "script",
+              "text": "\"Olá [Nome], tudo bem? Aqui é o [Seu Nome], da NuageIT. Sei que você deve estar ocupado, prometo ser breve: somos parceiros de engenharia especializados em AWS e ajudamos empresas como a sua a otimizar custos de nuvem, modernizar infraestruturas e acelerar projetos DevOps. Como está o foco de vocês hoje na gestão do ambiente Cloud?\""
+            }
+          ]
+        },
+        {
+          "title": "Quebra de Objeções Comuns",
+          "content": [
+            {
+              "type": "bullets",
+              "items": [
+                [
+                  { "text": "\"Já temos uma equipe interna cuidando disso\":", "strong": true },
+                  {
+                    "text": " Excelente! Nós não substituímos seu time; atuamos como braço especializado em arquiteturas avançadas, migração e auditorias de custo que aliviam a carga da sua equipe."
+                  }
+                ],
+                [
+                  { "text": "\"Não temos orçamento para projetos agora\":", "strong": true },
+                  {
+                    "text": " Perfeito. Nossos projetos de FinOps, por exemplo, costumam gerar economia imediata na fatura AWS logo nas primeiras semanas, pagando o próprio investimento."
+                  }
+                ],
+                [
+                  { "text": "\"Me mande um e-mail com apresentação\":", "strong": true },
+                  {
+                    "text": " Claro! Para enviar apenas o que for relevante para o seu cenário: hoje a prioridade seria reduzir custos, segurança ou migrar novas cargas?"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "topic",
+      "number": "04",
+      "title": "Qualificação & Passagem para o AM",
+      "subtopics": [
+        {
+          "title": "Checklist Mínimo para Agendamento",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                {
+                  "text": "Antes de criar o evento na agenda do Account Manager e registrar no Zoho, garanta que levantou:"
+                }
+              ]
+            },
+            {
+              "type": "bullets",
+              "items": [
+                [
+                  { "text": "Cenário Atual:", "strong": true },
+                  { "text": " Utilizam AWS, outra nuvem ou servidores locais?" }
+                ],
+                [
+                  { "text": "Dor ou Desafio:", "strong": true },
+                  { "text": " Qual o gargalo atual (custos altos, segurança, lentidão, projeto novo)?" }
+                ],
+                [
+                  { "text": "Autoridade:", "strong": true },
+                  { "text": " Quem participará da conversa (CTO, Coordenador, Gerente)?" }
+                ],
+                [
+                  { "text": "Registro completo:", "strong": true },
+                  { "text": " Adicione o resumo no Zoho e envie o convite com link da sala com o AM em cópia." }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

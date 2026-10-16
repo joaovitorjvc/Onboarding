@@ -1,0 +1,11 @@
+{
+  "_comment": "SHA-256 do Site_Legado no estado staged antes da Spec project-standards (o commit 8e043cf ainda não tem css/ e js/). Não altere sem a Spec legacy-migration.",
+  "files": {
+    "index.html": "7c18c2fcce3c21b31463a67d9dd8ddf41da599a03d2de1b462086d0bacf24a6d",
+    "primeiros-passos.html": "389206805b2f6238c0f8bbe44694b96f5743a5758d5c69b4d67a84be2ddc815c",
+    "plataformas.html": "2e71ffb806fc822a3d4f4e99c2b811eb897c1f8b2d41a979fa5bbdaacd9e2628",
+    "playbook.html": "a7fe911ce6e074260dc1317f88b928eb957f4881ad2eb99cb160e93b4508c90b",
+    "css/styles.css": "55b519c5785ace9e6b1334eebef62a0f6664adee0a243755818871163e27ee3c",
+    "js/main.js": "f23254ba91f73a3ecc6250131b0c27b511ef650f8c9d5468b98f45e6cc1fd759"
+  }
+}

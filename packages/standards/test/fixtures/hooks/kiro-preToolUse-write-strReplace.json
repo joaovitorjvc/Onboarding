@@ -1,0 +1,13 @@
+{
+  "hook_event_name": "preToolUse",
+  "cwd": "/workspace/project",
+  "session_id": "00000000-0000-0000-0000-000000000000",
+  "tool_name": "write",
+  "tool_input": {
+    "__tool_use_purpose": "Editar o conteúdo criado na primeira etapa, exatamente na ordem indicada.",
+    "command": "strReplace",
+    "path": "tmp-hook/probe.txt",
+    "oldStr": "linha1",
+    "newStr": "linha1-editada"
+  }
+}

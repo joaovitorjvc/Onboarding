@@ -1,0 +1,26 @@
+{
+  "name": "@nuagehub/standards",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Verificador_de_Padroes, Scripts_de_Hook e utilitários de padrões do NuageHub",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@nuagehub/config": "workspace:*",
+    "@types/node": "24.19.1",
+    "@types/picomatch": "4.0.3",
+    "@vitest/coverage-v8": "5.0.3",
+    "fast-check": "4.10.2",
+    "prettier": "3.9.9",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3"
+  },
+  "dependencies": {
+    "picomatch": "4.0.7",
+    "yaml": "2.9.1"
+  }
+}

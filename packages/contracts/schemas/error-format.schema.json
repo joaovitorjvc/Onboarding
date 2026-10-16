@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nuagehub.local/schemas/error-format.json",
+  "title": "ErrorFormat",
+  "description": "Formato_de_Erro padronizado do NuageHub (Req. 13.2). Definição única.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["code", "message", "correlationId", "status"],
+  "properties": {
+    "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]{2,63}$", "description": "Código estável do erro." },
+    "message": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "description": "Mensagem em pt-BR, sem stack trace."
+    },
+    "correlationId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Identificador de correlação (x-correlation-id)."
+    },
+    "status": { "type": "integer", "minimum": 400, "maximum": 599, "description": "Status HTTP." },
+    "details": {
+      "type": "array",
+      "description": "Detalhes por campo (erros de validação).",
+      "items": {
+        "type": "object",
+        "title": "ErrorDetail",
+        "additionalProperties": false,
+        "required": ["field", "issue"],
+        "properties": {
+          "field": { "type": "string" },
+          "issue": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# Configuração única de ruff (lint + format) para Python (Req. 11.2, 12.4)
+target-version = "py313"
+line-length = 120
+extend-exclude = ["**/.venv", "**/generated"]
+
+[lint]
+select = ["E", "F", "I", "N", "UP", "B", "S", "ANN"]
+
+[lint.per-file-ignores]
+# Em testes, assert é o mecanismo esperado.
+"**/tests/**" = ["S101"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"

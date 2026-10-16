@@ -1,0 +1,11 @@
+{
+  "legacyPaths": ["index.html", "primeiros-passos.html", "plataformas.html", "playbook.html", "css/**", "js/**"],
+  "stacks": {
+    "web": "apps/web/**",
+    "api": "apps/api/**",
+    "ai": "services/ai/*/**",
+    "packages": "packages/**"
+  },
+  "specMaxHours": 80,
+  "taskMaxHours": 8
+}

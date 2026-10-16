@@ -1,0 +1,9 @@
+{
+  "name": "@nuagehub/config",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Configurações compartilhadas (tsconfig base)",
+  "files": [
+    "tsconfig.base.json"
+  ]
+}

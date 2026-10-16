@@ -1,0 +1,6 @@
+{
+  "hook_event_name": "stop",
+  "cwd": "/workspace/project",
+  "session_id": "00000000-0000-0000-0000-000000000000",
+  "assistant_response": "OK"
+}
