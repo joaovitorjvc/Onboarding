@@ -46,20 +46,8 @@ export default defineConfig({
       timeout: 120_000,
       reuseExistingServer: !process.env.CI,
     },
-    {
-      command: 'node apps/web/e2e/serve-legacy.mjs',
-      cwd: repositoryRoot,
-      url: 'http://127.0.0.1:4180',
-      timeout: 30_000,
-      reuseExistingServer: !process.env.CI,
-    },
   ],
   projects: [
-    {
-      name: 'legacy-baseline',
-      testMatch: /legacy-baseline\.e2e\.test\.ts/,
-      use: { ...devices['Desktop Chrome'], baseURL: 'http://127.0.0.1:4180' },
-    },
     {
       name: 'visual',
       testMatch: /visual\.e2e\.test\.ts/,

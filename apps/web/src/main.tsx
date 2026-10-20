@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-// Estilos globais antes dos CSS Modules: a cascata precisa repetir a ordem do css/styles.css legado.
+// Estilos globais antes dos CSS Modules: a cascata repete a ordem da folha de estilos do Site_Legado.
 import './theme/fonts';
 import './theme/global.css';
 import { App } from './app/App';

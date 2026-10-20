@@ -11,8 +11,7 @@
     "lint": "eslint .",
     "typecheck": "tsc -p tsconfig.json",
     "test": "vitest run",
-    "e2e": "playwright test --project=e2e --project=visual",
-    "e2e:baseline": "playwright test --project=legacy-baseline --update-snapshots"
+    "e2e": "playwright test --project=e2e --project=visual"
   },
   "dependencies": {
     "@fontsource/inter": "5.3.0",
