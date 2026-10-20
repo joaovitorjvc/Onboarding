@@ -100,7 +100,7 @@ jobs:
       - name: Typecheck
         run: pnpm --filter @nuagehub/web typecheck
       - name: Testes com cobertura Cobertura
-        run: pnpm --filter @nuagehub/web test -- --coverage --coverage.reporter=cobertura
+        run: pnpm --filter @nuagehub/web test --coverage --coverage.reporter=cobertura
       - name: Publicar cobertura Web
         uses: actions/upload-artifact@v7
         with:
@@ -134,7 +134,7 @@ jobs:
       - name: Typecheck
         run: pnpm --filter @nuagehub/api typecheck
       - name: Testes com cobertura Cobertura
-        run: pnpm --filter @nuagehub/api test -- --coverage --coverageReporters=cobertura
+        run: pnpm --filter @nuagehub/api test --coverage --coverageReporters=cobertura
       - name: Publicar cobertura API
         uses: actions/upload-artifact@v7
         with:
