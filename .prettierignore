@@ -1,0 +1,11 @@
+# Gerados e dependências
+pnpm-lock.yaml
+**/node_modules/**
+**/dist/**
+**/coverage/**
+**/.venv/**
+**/uv.lock
+packages/contracts/src/generated/**
+packages/contracts/openapi/**
+packages/standards/test/fixtures/**
+.kiro/specs/**

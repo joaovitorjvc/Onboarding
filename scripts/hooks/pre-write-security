@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+ROOT=$(git rev-parse --show-toplevel)
+exec node "$ROOT/packages/standards/src/cli/pre-write-security.ts" "$@"

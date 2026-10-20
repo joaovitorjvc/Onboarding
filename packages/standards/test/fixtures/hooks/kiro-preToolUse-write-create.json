@@ -1,0 +1,12 @@
+{
+  "hook_event_name": "preToolUse",
+  "cwd": "/workspace/project",
+  "session_id": "00000000-0000-0000-0000-000000000000",
+  "tool_name": "write",
+  "tool_input": {
+    "command": "create",
+    "path": "tmp-hook/probe.txt",
+    "content": "linha1",
+    "__tool_use_purpose": "Criar o arquivo solicitado na primeira etapa, exatamente na ordem indicada."
+  }
+}

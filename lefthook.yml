@@ -1,0 +1,20 @@
+pre-commit:
+  parallel: true
+  commands:
+    prettier:
+      run: pnpm exec prettier --check {staged_files}
+      glob: '*.{ts,tsx,js,mjs,json,md,css,yml,yaml}'
+    eslint:
+      run: pnpm exec eslint {staged_files}
+      glob: '*.{ts,tsx,js,mjs}'
+    ruff-format:
+      run: uvx ruff@0.13.1 format --check --force-exclude {staged_files}
+      glob: '*.py'
+    ruff-check:
+      run: uvx ruff@0.13.1 check --force-exclude {staged_files}
+      glob: '*.py'
+
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm exec commitlint --edit {1}

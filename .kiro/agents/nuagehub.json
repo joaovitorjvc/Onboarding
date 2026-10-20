@@ -1,0 +1,15 @@
+{
+  "name": "nuagehub",
+  "description": "Agente de projeto do NuageHub: hooks de segurança, validação e steering condicional",
+  "tools": ["*"],
+  "allowedTools": ["read", "grep", "glob", "code"],
+  "hooks": {
+    "userPromptSubmit": [
+      { "command": "scripts/hooks/conditional-steering --source kiro", "timeout_ms": 5000, "max_output_size": 65536 }
+    ],
+    "preToolUse": [
+      { "matcher": "write", "command": "scripts/hooks/pre-write-security --source kiro", "timeout_ms": 6000 }
+    ],
+    "stop": [{ "command": "scripts/hooks/post-task-validation --source kiro", "timeout_ms": 600000 }]
+  }
+}

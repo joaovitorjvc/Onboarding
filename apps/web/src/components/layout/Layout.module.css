@@ -1,0 +1,19 @@
+.backgroundGlow {
+  position: fixed;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  max-width: 100vw;
+  height: 400px;
+  background: var(--glow);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.appShell {
+  min-height: 100vh;
+  background: var(--bg-main);
+  display: flex;
+  flex-direction: column;
+}

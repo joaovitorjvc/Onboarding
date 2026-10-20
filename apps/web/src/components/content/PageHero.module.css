@@ -1,0 +1,71 @@
+.pillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border-pill);
+  color: var(--primary-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.heroTitle {
+  font-size: 2.75rem;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-strong);
+}
+
+.gradientText {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroDescription {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.hero {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.pageHero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pageHero .pillBadge {
+  width: fit-content;
+}
+
+.pageHero .heroDescription {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 639px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+}

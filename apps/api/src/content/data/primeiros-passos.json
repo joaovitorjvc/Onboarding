@@ -1,0 +1,267 @@
+{
+  "slug": "primeiros-passos",
+  "documentTitle": "Primeiros Passos - NuageHub",
+  "navLabel": "Primeiros passos",
+  "hero": {
+    "variant": "page",
+    "eyebrow": "Guia do Colaborador",
+    "title": [[{ "text": "Primeiros Passos" }]],
+    "description": [
+      {
+        "text": "Seu guia de integração detalhado com o posicionamento da empresa, atribuições do seu papel comercial e acessos fundamentais."
+      }
+    ]
+  },
+  "blocks": [
+    {
+      "type": "topic",
+      "number": "01",
+      "title": "NuageIT",
+      "subtopics": [
+        {
+          "title": "O que somos",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                { "text": "A " },
+                {
+                  "text": "NuageIT é uma empresa de engenharia e consultoria em tecnologia, especializada em Cloud, principalmente no ecossistema AWS",
+                  "strong": true
+                },
+                {
+                  "text": ", com atuação sólida em ambientes corporativos e projetos complexos de transformação digital."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "O que fazemos",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                { "text": "Ajudamos empresas a " },
+                { "text": "construir, modernizar, proteger, otimizar e operar", "strong": true },
+                {
+                  "text": " sua infraestrutura e seus produtos digitais na nuvem, com foco em excelência técnica, resiliência e inovação através da AWS."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Nossas Competências",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                { "text": "Como parceiros especializados AWS, as principais competências da " },
+                { "text": "NuageIT", "href": "https://nuageit.com.br/aws-partner-network/" },
+                { "text": " abrangem as seguintes frentes de atuação:" }
+              ]
+            },
+            {
+              "type": "bullets",
+              "items": [
+                [
+                  { "text": "Migração (Migration):", "strong": true },
+                  { "text": " Especialização em mover infraestruturas locais (" },
+                  { "text": "on-premises", "emphasis": true },
+                  { "text": ") ou de outras nuvens para a AWS com segurança e o mínimo de impacto operacional." }
+                ],
+                [
+                  { "text": "DevOps:", "strong": true },
+                  {
+                    "text": " Fluidez na automação de processos, integração e entrega contínua (CI/CD) e infraestrutura como código (IaC)."
+                  }
+                ],
+                [
+                  { "text": "Segurança (Security):", "strong": true },
+                  {
+                    "text": " Garantia de ambientes blindados, em total conformidade com normas regulatórias e boas práticas de governança."
+                  }
+                ],
+                [
+                  { "text": "Dados e Análises (Data & Analytics):", "strong": true },
+                  { "text": " Criação de estruturas como " },
+                  { "text": "Data Lakes", "emphasis": true },
+                  { "text": " e arquiteturas modernas de análise para decisões orientadas a dados." }
+                ],
+                [
+                  { "text": "Inteligência Artificial (GenAI / IA):", "strong": true },
+                  {
+                    "text": " Desenvolvimento e implementação de soluções de inteligência artificial generativa aplicada ao negócio."
+                  }
+                ],
+                [
+                  { "text": "FinOps:", "strong": true },
+                  {
+                    "text": " Gestão e visibilidade de custos, monitoramento inteligente de gastos em nuvem e otimização financeira de recursos."
+                  }
+                ],
+                [
+                  { "text": "Redes (Networking):", "strong": true },
+                  {
+                    "text": " Estruturação de conectividade complexa, interconexões híbridas e arquitetura de redes seguras na nuvem."
+                  }
+                ],
+                [
+                  { "text": "Operações em Nuvem (Cloud Operations):", "strong": true },
+                  { "text": " Gerenciamento, monitoramento 24/7 e sustentação contínua de ambientes (" },
+                  { "text": "Managed Service Provider", "emphasis": true },
+                  { "text": ")." }
+                ],
+                [
+                  { "text": "Educação (Education):", "strong": true },
+                  {
+                    "text": " Atendimento e frameworks desenhados especificamente para o setor de ensino, instituições acadêmicas e plataformas de "
+                  },
+                  { "text": "e-learning", "emphasis": true },
+                  { "text": "." }
+                ],
+                [
+                  { "text": "SMB (Small and Medium Business):", "strong": true },
+                  {
+                    "text": " Atendimento consultivo e desenho de arquiteturas sob medida para o mercado de pequenas e médias empresas."
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "topic",
+      "number": "02",
+      "title": "Papel do SDR & Rotina",
+      "subtopics": [
+        {
+          "title": "Papel do SDR",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                { "text": "O SDR tem a responsabilidade de realizar o " },
+                { "text": "primeiro contato com um lead", "strong": true },
+                {
+                  "text": " para apresentar nossa empresa e os nossos serviços em nuvem, fazendo a qualificação inicial e conduzindo o agendamento de uma reunião com o "
+                },
+                { "text": "Account Manager (AM)", "strong": true },
+                { "text": " responsável." }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Acessos às Credenciais",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                { "text": "No seu primeiro dia, você receberá a liberação de acesso às ferramentas de trabalho: " },
+                { "text": "ClickUp, Plataforma NuageIT, Zoho e E-mail Corporativo", "strong": true },
+                { "text": ". Esses acessos são centralizados e encaminhados pelo " },
+                { "text": "Sharles", "strong": true },
+                { "text": " ou pela " },
+                { "text": "Santuzza", "strong": true },
+                { "text": "." }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Obrigações Iniciais",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                { "text": "Como compromisso obrigatório de rampa técnica e alinhamento de processos, é mandatório:" }
+              ]
+            },
+            {
+              "type": "bullets",
+              "items": [
+                [
+                  { "text": "Treinamentos L1:", "strong": true },
+                  { "text": " Realizar e concluir integralmente todos os treinamentos do nível " },
+                  { "text": "L1 na Plataforma Nuage", "strong": true },
+                  {
+                    "text": ". Esse conteúdo é a base para o entendimento técnico dos nossos serviços e argumentação com potenciais clientes."
+                  }
+                ],
+                [
+                  { "text": "Onboardings com o RH:", "strong": true },
+                  {
+                    "text": " Participar ativamente das sessões de integração agendadas pelo RH para alinhamento da cultura, regras internas e dúvidas gerais."
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "topic",
+      "number": "03",
+      "title": "Links Importantes & Pagamento",
+      "subtopics": [
+        {
+          "title": "Links Rápidos",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [{ "text": "Acesse diretamente os portais que farão parte da sua rotina diária:" }]
+            },
+            {
+              "type": "links",
+              "items": [
+                {
+                  "title": "Plataforma Nuage",
+                  "description": "plataforma.onnuageit.cloud (Treinamentos L1 e rotinas internas)",
+                  "href": "https://plataforma.onnuageit.cloud/"
+                },
+                {
+                  "title": "ClickUp NuageIT",
+                  "description": "nuageit.clickup.com (Gestão de tarefas, rotinas e projetos)",
+                  "href": "https://nuageit.clickup.com/"
+                },
+                {
+                  "title": "Zoho CRM",
+                  "description": "Ambiente de gestão de leads e oportunidades (link em configuração)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Instruções de Pagamento (Contratos PJ)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                {
+                  "text": "Para profissionais com contrato na modalidade PJ, as notas fiscais referentes à prestação de serviços devem ser emitidas mensalmente e submetidas através do canal oficial do Financeiro:"
+                }
+              ]
+            },
+            {
+              "type": "actions",
+              "items": [
+                {
+                  "label": "Anexar Nota Fiscal no Formulário ClickUp",
+                  "href": "https://forms.clickup.com/9013142744/f/8ckk96r-176373/FNFBPF6K2E14ZV5TJX",
+                  "icon": "receipt",
+                  "style": "primary"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

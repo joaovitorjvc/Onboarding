@@ -1,0 +1,12 @@
+{
+  "hook_event_name": "preToolUse",
+  "cwd": "/workspace/project",
+  "session_id": "00000000-0000-0000-0000-000000000000",
+  "tool_name": "write",
+  "tool_input": {
+    "__tool_use_purpose": "Adicionar a segunda linha ao final do arquivo, sem especificar insertLine, conforme solicitado.",
+    "command": "insert",
+    "content": "linha2",
+    "path": "tmp-hook/probe.txt"
+  }
+}

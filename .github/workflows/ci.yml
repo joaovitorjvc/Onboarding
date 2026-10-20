@@ -1,0 +1,253 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  standards:
+    name: standards
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Configurar pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10.34.6
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Configurar uv
+        uses: astral-sh/setup-uv@v10.3.0
+      - name: Instalar dependências JavaScript
+        run: pnpm install --frozen-lockfile
+      - name: Verificar padrões
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            pnpm standards:check --changed-files $(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          else
+            pnpm standards:check
+          fi
+      - name: Validar commits
+        if: github.event_name == 'pull_request'
+        run: pnpm exec commitlint --from origin/${{ github.base_ref }} --to HEAD
+      - name: Validar nome da branch
+        if: github.event_name == 'pull_request'
+        run: node packages/standards/src/cli/check-branch.ts "$GITHUB_HEAD_REF"
+      - name: Executar varredura de segurança
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            changed_files="$(git diff --name-only origin/${{ github.base_ref }}...HEAD | while IFS= read -r file; do if [[ -f "$file" ]]; then printf '%s\n' "$file"; fi; done)"
+          else
+            changed_files="$(git diff --name-only HEAD^ HEAD | while IFS= read -r file; do if [[ -f "$file" ]]; then printf '%s\n' "$file"; fi; done)"
+          fi
+          if [[ -n "$changed_files" ]]; then
+            pnpm security:scan $changed_files
+          fi
+      - name: Verificar contratos gerados
+        run: |
+          pnpm --filter @nuagehub/api openapi:export
+          pnpm --filter @nuagehub/contracts generate
+          git diff --exit-code packages/contracts
+      - name: Lint dos pacotes de padrões e contratos
+        run: |
+          pnpm --filter @nuagehub/standards lint
+          pnpm --filter @nuagehub/contracts lint
+      - name: Typecheck dos pacotes de padrões e contratos
+        run: |
+          pnpm --filter @nuagehub/standards typecheck
+          pnpm --filter @nuagehub/contracts typecheck
+      - name: Testes dos pacotes de padrões e contratos
+        run: |
+          pnpm --filter @nuagehub/standards test
+          pnpm --filter @nuagehub/contracts test
+
+  web:
+    name: web
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Configurar pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10.34.6
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Configurar uv
+        uses: astral-sh/setup-uv@v10.3.0
+      - name: Instalar dependências JavaScript
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm --filter @nuagehub/web lint
+      - name: Typecheck
+        run: pnpm --filter @nuagehub/web typecheck
+      - name: Testes com cobertura Cobertura
+        run: pnpm --filter @nuagehub/web test --coverage --coverage.reporter=cobertura
+      - name: Publicar cobertura Web
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-web
+          path: apps/web/coverage/cobertura-coverage.xml
+          if-no-files-found: error
+
+  api:
+    name: api
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Configurar pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10.34.6
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Configurar uv
+        uses: astral-sh/setup-uv@v10.3.0
+      - name: Instalar dependências JavaScript
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm --filter @nuagehub/api lint
+      - name: Typecheck
+        run: pnpm --filter @nuagehub/api typecheck
+      - name: Testes com cobertura Cobertura
+        run: pnpm --filter @nuagehub/api test --coverage --coverageReporters=cobertura
+      - name: Publicar cobertura API
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-api
+          path: apps/api/coverage/cobertura-coverage.xml
+          if-no-files-found: error
+
+  ai:
+    name: ai (${{ matrix.module }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        module:
+          - example
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Configurar uv
+        uses: astral-sh/setup-uv@v10.3.0
+      - name: Configurar Python
+        uses: actions/setup-python@v7
+        with:
+          python-version-file: .python-version
+      - name: Sincronizar dependências Python
+        working-directory: services/ai/${{ matrix.module }}
+        run: uv sync --locked
+      - name: Ruff lint
+        working-directory: services/ai/${{ matrix.module }}
+        run: uv run ruff check .
+      - name: Ruff format
+        working-directory: services/ai/${{ matrix.module }}
+        run: uv run ruff format --check .
+      - name: Mypy
+        working-directory: services/ai/${{ matrix.module }}
+        run: uv run mypy --config-file ../../../mypy.ini src
+      - name: Testes com cobertura
+        working-directory: services/ai/${{ matrix.module }}
+        run: uv run pytest --cov=src --cov-report=xml
+      - name: Publicar cobertura IA
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-ai-${{ matrix.module }}
+          path: services/ai/${{ matrix.module }}/coverage.xml
+          if-no-files-found: error
+
+  coverage:
+    name: coverage
+    if: github.event_name == 'pull_request'
+    needs:
+      - web
+      - api
+      - ai
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Baixar coberturas
+        uses: actions/download-artifact@v8
+        with:
+          path: coverage
+      - name: Configurar uv
+        uses: astral-sh/setup-uv@v10.3.0
+      - name: Verificar cobertura do diff
+        shell: bash
+        run: |
+          shopt -s globstar nullglob
+          uvx diff-cover@10.2.1 **/*.xml --compare-branch=origin/${{ github.base_ref }} --fail-under=80
+
+  e2e:
+    name: e2e
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.64.0-noble
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Filtrar caminhos afetados
+        id: filter
+        uses: dorny/paths-filter@v4
+        with:
+          filters: |
+            e2e:
+              - 'apps/web/**'
+              - 'apps/api/**'
+              - 'packages/contracts/**'
+      - name: Configurar pnpm
+        if: steps.filter.outputs.e2e == 'true'
+        run: |
+          # O container roda com outro usuário; sem isso o git (e o lefthook install) recusa o checkout.
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          corepack enable
+          corepack prepare pnpm@10.34.6 --activate
+      - name: Instalar dependências JavaScript
+        if: steps.filter.outputs.e2e == 'true'
+        run: pnpm install --frozen-lockfile
+      - name: Instalar Chromium
+        if: steps.filter.outputs.e2e == 'true'
+        run: pnpm --filter @nuagehub/web exec playwright install --with-deps chromium
+      - name: Executar testes visuais e E2E
+        if: steps.filter.outputs.e2e == 'true'
+        run: pnpm --filter @nuagehub/web e2e
+      - name: Publicar resultados Playwright em falha
+        if: failure() && steps.filter.outputs.e2e == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-results
+          path: |
+            apps/web/test-results
+            apps/web/playwright-report
+          if-no-files-found: warn

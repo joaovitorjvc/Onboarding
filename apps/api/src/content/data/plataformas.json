@@ -1,0 +1,229 @@
+{
+  "slug": "plataformas",
+  "documentTitle": "Plataformas - NuageHub",
+  "navLabel": "Plataformas",
+  "hero": {
+    "variant": "page",
+    "eyebrow": "Stack Tecnológico & Operação",
+    "title": [[{ "text": "Plataformas" }]],
+    "description": [
+      {
+        "text": "Passo a passo prático de configuração e rotina nas principais ferramentas utilizadas no dia a dia da NuageIT."
+      }
+    ]
+  },
+  "blocks": [
+    {
+      "type": "topic",
+      "number": "01",
+      "title": "Plataforma NuageIT",
+      "subtopics": [
+        {
+          "title": "Para que serve",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                {
+                  "text": "É o nosso portal interno de desenvolvimento técnico e certificações corporativas. Aqui você realizará todos os "
+                },
+                { "text": "treinamentos obrigatórios do nível L1", "strong": true },
+                { "text": " para dominar o catálogo de serviços em nuvem AWS e os pilares de entrega da NuageIT." }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Passo a passo de acesso",
+          "content": [
+            {
+              "type": "steps",
+              "items": [
+                [
+                  { "text": "Acesse o portal:", "strong": true },
+                  { "text": " Entre em " },
+                  { "text": "plataforma.onnuageit.cloud", "href": "https://plataforma.onnuageit.cloud/" },
+                  { "text": "." }
+                ],
+                [
+                  { "text": "Autenticação:", "strong": true },
+                  { "text": " Insira seu e-mail institucional e a credencial enviada por Sharles ou Santuzza." }
+                ],
+                [
+                  { "text": "Inicie a Trilha L1:", "strong": true },
+                  {
+                    "text": " Navegue até a aba de cursos e conclua a trilha de fundamentos de Cloud e competências comerciais."
+                  }
+                ]
+              ]
+            },
+            {
+              "type": "actions",
+              "items": [
+                {
+                  "label": "Abrir Plataforma Nuage",
+                  "href": "https://plataforma.onnuageit.cloud/",
+                  "icon": "external-link",
+                  "style": "primary"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "topic",
+      "number": "02",
+      "title": "ClickUp",
+      "subtopics": [
+        {
+          "title": "Para que serve",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                {
+                  "text": "O ClickUp é o coração da gestão operacional da NuageIT. Nele organizamos rotinas diárias, alinhamentos semanais, documentações internas de processos e formulários administrativos (como o envio de NF)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Passo a passo de configuração",
+          "content": [
+            {
+              "type": "steps",
+              "items": [
+                [
+                  { "text": "Aceite o convite:", "strong": true },
+                  {
+                    "text": " Abra a mensagem de convite recebida no seu e-mail corporativo e clique para ativar sua conta no workspace da "
+                  },
+                  { "text": "NuageIT", "emphasis": true },
+                  { "text": "." }
+                ],
+                [
+                  { "text": "Configuração de perfil:", "strong": true },
+                  {
+                    "text": " Adicione sua foto, configure fuso horário e revise as preferências de notificação para acompanhar as tarefas atribuídas a você."
+                  }
+                ],
+                [
+                  { "text": "Navegue pelo seu espaço:", "strong": true },
+                  { "text": " Localize o espaço do time comercial para visualizar seus quadros e documentos de apoio." }
+                ]
+              ]
+            },
+            {
+              "type": "actions",
+              "items": [
+                {
+                  "label": "Acessar ClickUp NuageIT",
+                  "href": "https://nuageit.clickup.com/",
+                  "icon": "external-link",
+                  "style": "primary"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "topic",
+      "number": "03",
+      "title": "Zoho CRM",
+      "subtopics": [
+        {
+          "title": "Para que serve",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                {
+                  "text": "Plataforma de gestão comercial onde são cadastrados e enriquecidos os leads, histórico de tentativas de contato, status de qualificação e agendamentos diretos para os "
+                },
+                { "text": "Account Managers (AMs)", "strong": true },
+                { "text": "." }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Passo a passo de rotina",
+          "content": [
+            {
+              "type": "steps",
+              "items": [
+                [
+                  { "text": "Liberação de licença:", "strong": true },
+                  { "text": " Aguarde a confirmação de liberação do seu perfil de usuário de vendas no Zoho." }
+                ],
+                [
+                  { "text": "Acompanhamento de leads:", "strong": true },
+                  {
+                    "text": " Acesse as visões e filtros de leads da sua fila de prospecção para iniciar as cadências."
+                  }
+                ],
+                [
+                  { "text": "Registro de interações:", "strong": true },
+                  {
+                    "text": " Registre todas as anotações, motivos de perda ou avanço de etapa para o Account Manager dar sequência na reunião."
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "topic",
+      "number": "04",
+      "title": "E-mail Corporativo & Canais",
+      "subtopics": [
+        {
+          "title": "Para que serve",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": [
+                {
+                  "text": "Seu e-mail corporativo é o seu cartão de visitas digital perante clientes e tomadores de decisão em campanhas de prospecção outbound, além de ser a chave para o login único nas ferramentas."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Configuração inicial",
+          "content": [
+            {
+              "type": "steps",
+              "items": [
+                [
+                  { "text": "Primeiro acesso & Senha:", "strong": true },
+                  {
+                    "text": " Acesse seu e-mail corporativo e defina uma nova senha forte com autenticação em duas etapas (2FA) ativada."
+                  }
+                ],
+                [
+                  { "text": "Assinatura padrão:", "strong": true },
+                  { "text": " Aplique a assinatura oficial de e-mail da NuageIT com seu nome, cargo (SDR) e contatos." }
+                ],
+                [
+                  { "text": "Canais de comunicação:", "strong": true },
+                  {
+                    "text": " Acesse os grupos de comunicação interna para tirar dúvidas em tempo real com seu gestor e time."
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
