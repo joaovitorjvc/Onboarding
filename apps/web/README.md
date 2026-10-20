@@ -30,4 +30,6 @@ pnpm --filter @nuagehub/web e2e
 
 Para aceitar uma mudança visual intencional, regenere as capturas com `pnpm --filter @nuagehub/web exec playwright test --project=visual --update-snapshots` e revise as imagens no pull request.
 
-O Chromium é instalado pelo Playwright quando necessário (`pnpm --filter @nuagehub/web exec playwright install chromium`). O Docker não está disponível neste ambiente local (`docker info` não pôde ser executado); portanto, a baseline registrada foi gerada no macOS. O Pipeline_CI executa os testes na imagem `mcr.microsoft.com/playwright:v1.64.0-noble`.
+As capturas são separadas por plataforma (`{nome}-{largura}-darwin.png` e `{nome}-{largura}-linux.png`), porque macOS e Linux desenham a fonte de forma diferente. As `-darwin` vieram da baseline do Site_Legado gerada no macOS; as `-linux` são as do Pipeline_CI, que executa os testes na imagem `mcr.microsoft.com/playwright:v1.64.0-noble`. Ao regenerar, atualize as duas plataformas; para a Linux, use essa imagem (localmente com Docker, ou o artefato `playwright-results` de uma execução do CI).
+
+O Chromium é instalado pelo Playwright quando necessário (`pnpm --filter @nuagehub/web exec playwright install chromium`).

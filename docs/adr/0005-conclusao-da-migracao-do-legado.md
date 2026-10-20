@@ -15,7 +15,7 @@ A Spec `legacy-migration` entregou o Contrato_de_Conteudo em `packages/contracts
 - Manter o mecanismo `legacyPaths` do Verificador_de_Padroes com lista vazia em `standards.config.json`; o `legacyListsCheck` aceita comandos do lefthook sem `exclude` quando a lista canônica está vazia.
 - Trocar o teste de integridade por hash (`legacy-baseline.json`) por um teste que confirma a ausência dos arquivos legados na raiz.
 - Fazer de `apps/web/src/theme/tokens.ts` a fonte única dos Tokens_de_Design, com os valores fixados em teste.
-- Manter como referência visual as capturas versionadas em `apps/web/e2e/__screenshots__/`, geradas a partir do Site_Legado antes da remoção. O Docker não estava disponível localmente, então as capturas foram geradas no macOS; o Pipeline_CI roda na imagem `mcr.microsoft.com/playwright:v1.64.0-noble` e, se a renderização de fonte do Linux divergir acima da tolerância, as capturas devem ser regeneradas nessa imagem e revisadas no pull request.
+- Manter como referência visual as capturas versionadas em `apps/web/e2e/__screenshots__/`, separadas por plataforma (`-darwin` e `-linux` no `snapshotPathTemplate`). As `-darwin` foram geradas a partir do Site_Legado antes da remoção, no macOS, porque o Docker não estava disponível localmente. Na primeira execução do Pipeline_CI (imagem `mcr.microsoft.com/playwright:v1.64.0-noble`), 6 das 12 capturas divergiram de 3% a 8% só por métrica de fonte (quebra de linha e desenho dos glifos), acima da tolerância de 2%. As `-linux` dessas 6 vieram do artefato daquela execução, depois de inspeção visual; as outras 6 passaram no Linux dentro da tolerância e reaproveitam a captura do macOS.
 
 ## Consequências
 

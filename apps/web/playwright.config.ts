@@ -21,7 +21,7 @@ export default defineConfig({
       maxDiffPixelRatio: 0.02,
     },
   },
-  snapshotPathTemplate: '{testDir}/__screenshots__/{arg}{ext}',
+  snapshotPathTemplate: '{testDir}/__screenshots__/{arg}-{platform}{ext}',
   reporter: process.env.CI ? [['line'], ['html', { outputFolder: 'playwright-report', open: 'never' }]] : 'line',
   use: {
     ...devices['Desktop Chrome'],
