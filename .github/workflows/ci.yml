@@ -49,9 +49,9 @@ jobs:
         shell: bash
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            changed_files="$(git diff --name-only origin/${{ github.base_ref }}...HEAD | while IFS= read -r file; do [[ -f "$file" ]] && printf '%s\n' "$file"; done)"
+            changed_files="$(git diff --name-only origin/${{ github.base_ref }}...HEAD | while IFS= read -r file; do if [[ -f "$file" ]]; then printf '%s\n' "$file"; fi; done)"
           else
-            changed_files="$(git diff --name-only HEAD^ HEAD | while IFS= read -r file; do [[ -f "$file" ]] && printf '%s\n' "$file"; done)"
+            changed_files="$(git diff --name-only HEAD^ HEAD | while IFS= read -r file; do if [[ -f "$file" ]]; then printf '%s\n' "$file"; fi; done)"
           fi
           if [[ -n "$changed_files" ]]; then
             pnpm security:scan $changed_files
