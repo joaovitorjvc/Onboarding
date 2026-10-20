@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { snapshotFrom } from '../core/snapshot.ts';
+import { DEFAULT_CONFIG } from '../core/types.ts';
 import { legacyListsCheck } from './legacy-lists-check.ts';
 
 const LEGACY = ['index.html', 'primeiros-passos.html', 'plataformas.html', 'playbook.html', 'css/**', 'js/**'];
@@ -27,6 +28,29 @@ describe('legacyListsCheck', () => {
       'lefthook.yml': lefthookWithMultipleCommands,
     });
     expect(legacyListsCheck.run(snap)).toEqual([]);
+  });
+
+  it('aceita lista canônica vazia sem seção, sem itens e sem exclude', () => {
+    const snap = snapshotFrom(
+      {
+        'standards.config.json': '{}',
+        '.prettierignore': '# Gerados\nnode_modules\n',
+        'eslint.config.mjs': 'const legacyPaths = [];\n',
+        'lefthook.yml': 'pre-commit:\n  commands:\n    prettier:\n      run: prettier --check {staged_files}\n',
+      },
+      { config: { ...DEFAULT_CONFIG, legacyPaths: [] } },
+    );
+    expect(legacyListsCheck.run(snap)).toEqual([]);
+  });
+
+  it('exige exclude enquanto a lista canônica não estiver vazia', () => {
+    const snap = snapshotFrom({
+      'standards.config.json': '{}',
+      '.prettierignore': prettier,
+      'eslint.config.mjs': eslint,
+      'lefthook.yml': 'pre-commit:\n  commands:\n    prettier:\n      run: prettier --check {staged_files}\n',
+    });
+    expect(legacyListsCheck.run(snap).map((v) => v.file)).toEqual(['lefthook.yml']);
   });
 
   it('reporta divergência e arquivos obrigatórios ausentes', () => {

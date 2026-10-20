@@ -38,7 +38,8 @@ function commandObjects(value: unknown, output: Record<string, unknown>[] = []):
 /**
  * O formato esperado para lefthook.yml é uma lista YAML `exclude:` em cada
  * objeto de comando (aquele que contém `run` ou `script`), com exatamente os
- * mesmos legacyPaths do standards.config.json.
+ * mesmos legacyPaths do standards.config.json. Com a lista canônica vazia,
+ * o comando pode omitir `exclude` (Spec legacy-migration, Req. 9.2).
  */
 function lefthookLegacyPaths(content: string): { lists: string[][]; invalidCommands: number } {
   const parsed = parseYaml(content) as unknown;
@@ -107,7 +108,7 @@ export const legacyListsCheck: NamedCheck = {
     if (lefthook !== undefined) {
       try {
         const result = lefthookLegacyPaths(lefthook);
-        if (result.invalidCommands > 0) {
+        if (result.invalidCommands > 0 && expected.length > 0) {
           violations.push({
             file: 'lefthook.yml',
             requirement: '18.5',
