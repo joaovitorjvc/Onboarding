@@ -1,6 +1,6 @@
 # Constituição do NuageHub
 
-Última alteração: 2026-10-08
+Última alteração: 2026-10-20
 
 ## Idioma
 
@@ -14,14 +14,12 @@
 - Execute a revisão de segurança antes de aceitar escrita que contenha um Achado_Bloqueante ou um Achado_de_Alerta.
 - Não use `eval`, `new Function`, execução de comando com entrada dinâmica, SQL concatenado ou HTML não sanitizado.
 - Preserve logs estruturados sem segredos, tokens, credenciais ou stack traces em respostas públicas.
-- Trate o Site_Legado como conteúdo intocável; registre qualquer necessidade de alteração como pendência de `legacy-migration`.
 
 ## Estrutura do Monorepo
 
 - Mantenha o App_Web em `apps/web`, o App_API em `apps/api`, os Modulos_IA em `services/ai/{nome-do-modulo}` e os Pacotes_Compartilhados em `packages/`.
 - Use um único workspace JavaScript, um único lockfile na raiz e `pyproject.toml` com lockfile próprio para cada Modulo_IA.
 - Mantenha na raiz `.kiro/`, `CLAUDE.md`, `.claude/` e `scripts/hooks/`.
-- Preserve os caminhos do Site_Legado: páginas HTML da raiz, `css/**` e `js/**`.
 
 ## Testes
 

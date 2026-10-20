@@ -111,33 +111,33 @@ Ordem: contrato → App_API (dados e endpoints) → App_Web (rotas, cliente, blo
     - _Depends: 4.2_
     - _Stack: repo · Est: 1h_
 
-- [ ] 5. Checkpoint - Aprovação antes da remoção
+- [x] 5. Checkpoint - Aprovação antes da remoção
   - Rodar `pnpm standards:check`, `pnpm lint`, `pnpm typecheck`, `pnpm test` e os testes de ponta a ponta.
   - Pedir ao usuário a checagem manual das quatro Paginas_Migradas (`pnpm dev`) e a aprovação da remoção (Req. 9.1).
 
-- [ ] 6. Remoção do Site_Legado
-  - [ ] 6.1 Remover os arquivos e as referências do Site_Legado no repositório
+- [x] 6. Remoção do Site_Legado
+  - [x] 6.1 Remover os arquivos e as referências do Site_Legado no repositório
     - `git rm` dos arquivos legados; `legacyPaths: []` em `standards.config.json`; ajustes em `.prettierignore`, `eslint.config.mjs` e `lefthook.yml`; Constituição, steering, `CLAUDE.md`, `README.md`, backlog e `docs/adr/0005-conclusao-da-migracao-do-legado.md`
     - _Requirements: 9.1, 9.2, 9.4, 9.5_
     - _Depends: 4.3_
     - _Stack: repo · Est: 2h_
-  - [ ] 6.2 Adaptar o Verificador_de_Padroes à remoção
+  - [x] 6.2 Adaptar o Verificador_de_Padroes à remoção
     - `legacyListsCheck` aceita lista vazia sem `exclude`; teste de hash vira teste de ausência; `legacy-baseline.json` removido
     - _Requirements: 9.2, 9.3_
     - _Depends: 6.1_
     - _Stack: standards · Est: 1h_
-  - [ ] 6.3 Adaptar os testes do App_Web à remoção
+  - [x] 6.3 Adaptar os testes do App_Web à remoção
     - `tokens.test.ts` sem leitura de `css/styles.css`; projeto `legacy-baseline` e `serve-legacy.mjs` removidos
     - _Requirements: 9.3, 9.6_
     - _Depends: 6.1_
     - _Stack: web · Est: 0.5h_
-  - [ ] 6.4 Remover o teste de paridade de texto da API
+  - [x] 6.4 Remover o teste de paridade de texto da API
     - `legacy-parity.test.ts` removido
     - _Requirements: 9.3_
     - _Depends: 6.1_
     - _Stack: api · Est: 0.25h_
 
-- [ ] 7. Checkpoint final
+- [x] 7. Checkpoint final
   - Rodar `pnpm standards:check`, `pnpm lint`, `pnpm typecheck`, `pnpm test` e os testes visuais e de ponta a ponta; confirmar que não existe arquivo legado na raiz.
 
 ## Notes

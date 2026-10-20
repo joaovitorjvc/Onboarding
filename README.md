@@ -1,11 +1,11 @@
 # NuageHub
 
-O NuageHub é o portal de onboarding da NuageIT, com foco inicial em novos SDRs. Este repositório é um Monorepo que reúne o futuro frontend React, a API NestJS, módulos Python de IA e pacotes compartilhados. O Site_Legado continua disponível enquanto a migração é planejada em uma Spec própria.
+O NuageHub é o portal de onboarding da NuageIT, com foco inicial em novos SDRs. Este repositório é um Monorepo que reúne o frontend React, a API NestJS, módulos Python de IA e pacotes compartilhados. O portal é servido pelo App_Web, que lê o conteúdo das páginas do App_API.
 
 ## Estrutura do Monorepo
 
-- `apps/web`: App_Web em React, Vite, TypeScript e Vitest.
-- `apps/api`: App_API em NestJS, com endpoint público de saúde e contratos OpenAPI.
+- `apps/web`: App_Web em React, Vite, TypeScript e Vitest, com as páginas do portal.
+- `apps/api`: App_API em NestJS, com endpoints públicos de saúde e de conteúdo das páginas e contratos OpenAPI.
 - `services/ai/{nome-do-modulo}`: Modulos_IA em Python, gerenciados individualmente por uv.
 - `packages/contracts`: Formato_de_Erro e tipos gerados a partir do OpenAPI.
 - `packages/standards`: Verificador_de_Padroes, CLIs e utilitários dos hooks.
@@ -80,9 +80,15 @@ No Kiro CLI, selecione o agente de projeto `nuagehub`, definido em `.kiro/agents
 
 No Claude Code, mantenha `CLAUDE.md` como contexto inicial e use as regras escopadas em `.claude/rules/`. A Constituição prevalece em caso de conflito.
 
-## Site_Legado intocável
+## Executar o portal
 
-As páginas atuais permanecem na raiz. Para abrir a versão legada, abra `index.html` diretamente no navegador; as demais páginas são `primeiros-passos.html`, `plataformas.html` e `playbook.html`. Não altere, formate ou migre os HTML, `css/**` ou `js/**` fora da Spec `legacy-migration`. Consulte `docs/legacy-migration-backlog.md` para o escopo futuro.
+```sh
+pnpm dev
+```
+
+O comando inicia o App_API e o App_Web. As rotas são `/`, `/primeiros-passos`, `/plataformas` e `/playbook`; as URLs antigas (`/index.html`, `/primeiros-passos.html`, `/plataformas.html` e `/playbook.html`) redirecionam para elas. O checklist continua salvo no navegador com a chave `nuagehub-checklist`. As variáveis de cada aplicação estão nos arquivos `.env.example` e nos READMEs de `apps/web` e `apps/api`.
+
+O site estático original foi removido ao fim da Spec `legacy-migration`; veja o [ADR-0005](docs/adr/0005-conclusao-da-migracao-do-legado.md) e o histórico em `docs/legacy-migration-backlog.md`.
 
 ## Proteção da branch `main`
 
