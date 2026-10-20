@@ -1,5 +1,5 @@
 {
-  "legacyPaths": ["index.html", "primeiros-passos.html", "plataformas.html", "playbook.html", "css/**", "js/**"],
+  "legacyPaths": [],
   "stacks": {
     "web": "apps/web/**",
     "api": "apps/api/**",
