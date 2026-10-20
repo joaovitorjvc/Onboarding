@@ -28,7 +28,7 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - name: Configurar uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.3.0
       - name: Instalar dependências JavaScript
         run: pnpm install --frozen-lockfile
       - name: Verificar padrões
@@ -92,7 +92,7 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - name: Configurar uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.3.0
       - name: Instalar dependências JavaScript
         run: pnpm install --frozen-lockfile
       - name: Lint
@@ -126,7 +126,7 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - name: Configurar uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.3.0
       - name: Instalar dependências JavaScript
         run: pnpm install --frozen-lockfile
       - name: Lint
@@ -156,7 +156,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Configurar uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.3.0
       - name: Configurar Python
         uses: actions/setup-python@v7
         with:
@@ -201,7 +201,7 @@ jobs:
         with:
           path: coverage
       - name: Configurar uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.3.0
       - name: Verificar cobertura do diff
         shell: bash
         run: |
@@ -229,6 +229,8 @@ jobs:
       - name: Configurar pnpm
         if: steps.filter.outputs.e2e == 'true'
         run: |
+          # O container roda com outro usuário; sem isso o git (e o lefthook install) recusa o checkout.
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           corepack enable
           corepack prepare pnpm@10.34.6 --activate
       - name: Instalar dependências JavaScript
