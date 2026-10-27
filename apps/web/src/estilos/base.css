@@ -1,0 +1,153 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-radius: var(--nuage-raio-nenhum);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--nuage-fundo);
+  color: var(--nuage-texto);
+  font-family: var(--nuage-fonte-corpo);
+  font-size: var(--nuage-escala-corpo);
+  font-weight: var(--nuage-peso-corpo);
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  stroke: currentColor;
+}
+
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+p {
+  max-width: 72ch;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--nuage-fonte-mono);
+}
+
+a {
+  color: var(--nuage-acao-secundaria);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+a:hover {
+  color: var(--nuage-acao-primaria);
+  text-decoration-color: var(--nuage-destaque);
+}
+
+/* ---------- Hierarquia ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--nuage-fonte-titulo);
+  font-weight: var(--nuage-peso-subtitulo);
+  line-height: 1.2;
+  color: var(--nuage-titulo);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--nuage-escala-titulo-1);
+  font-weight: var(--nuage-peso-titulo);
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: var(--nuage-escala-titulo-2);
+}
+
+h3 {
+  font-size: var(--nuage-escala-titulo-3);
+}
+
+p,
+li,
+dd,
+dt,
+td,
+th,
+label {
+  font-family: var(--nuage-fonte-corpo);
+  font-size: var(--nuage-escala-corpo);
+  line-height: 1.6;
+}
+
+/* ---------- Foco global: única política, não reimplementar nos componentes ---------- */
+:focus-visible {
+  outline: var(--nuage-foco-espessura) solid var(--nuage-foco-cor);
+  outline-offset: var(--nuage-foco-deslocamento);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ---------- Texto auxiliar para leitores de tela ---------- */
+.oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- Movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

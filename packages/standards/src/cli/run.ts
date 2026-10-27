@@ -58,8 +58,16 @@ export function discoverStacks(root: string): StackId[] {
   return stacks;
 }
 
+export function resolveExecutable(command: string, platform: NodeJS.Platform = process.platform): string {
+  return platform === 'win32' && command === 'pnpm' ? 'pnpm.cmd' : command;
+}
+
 function run(command: string[], cwd: string): number {
-  const result = spawnSync(command[0]!, command.slice(1), { cwd, stdio: 'inherit' });
+  const result = spawnSync(resolveExecutable(command[0]!), command.slice(1), {
+    cwd,
+    stdio: 'inherit',
+    shell: process.platform === 'win32',
+  });
   if (result.error) {
     process.stderr.write(`falha ao executar ${command.join(' ')}: ${result.error.message}\n`);
     return 1;
@@ -105,7 +113,11 @@ async function runDevInParallel(root: string, stacks: StackId[]): Promise<number
     .filter((stack) => stack === 'web' || stack === 'api')
     .map((stack) => {
       const packageName = stack === 'web' ? '@nuagehub/web' : '@nuagehub/api';
-      return spawn('pnpm', ['--filter', packageName, 'dev'], { cwd: root, stdio: 'inherit' });
+      return spawn(resolveExecutable('pnpm'), ['--filter', packageName, 'dev'], {
+        cwd: root,
+        stdio: 'inherit',
+        shell: process.platform === 'win32',
+      });
     });
   if (processes.length === 0) return 0;
   const statuses = await Promise.all(

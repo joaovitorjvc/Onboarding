@@ -1,0 +1,366 @@
+/* =========================================================
+   Leitura: contêiner, corpo e prosa
+   ========================================================= */
+.nuage-container {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: var(--nuage-espaco-5);
+}
+
+.nuage-corpo {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: var(--nuage-espaco-6) var(--nuage-espaco-5);
+}
+
+.nuage-corpo:focus {
+  outline: none;
+}
+
+.nuage-prosa p {
+  max-width: 68ch;
+}
+
+.nuage-prosa ul:not([class]),
+.nuage-prosa ol:not([class]) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nuage-espaco-2);
+  padding-inline-start: var(--nuage-espaco-4);
+}
+
+/* =========================================================
+   Ritmo da página
+   ========================================================= */
+.nuage-pagina {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nuage-espaco-6);
+}
+
+.nuage-pagina-cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nuage-espaco-2);
+  padding-block-end: var(--nuage-espaco-4);
+  border-bottom: var(--nuage-espessura-borda) solid var(--nuage-divisoria);
+}
+
+.nuage-pagina-cabecalho h1 {
+  max-width: 18ch;
+}
+
+.nuage-pagina-cabecalho p {
+  max-width: 72ch;
+  color: var(--nuage-texto-secundario);
+}
+
+.nuage-bloco-pagina {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--nuage-espaco-3);
+}
+
+.nuage-bloco-pagina > * {
+  max-width: 100%;
+}
+
+.nuage-bloco-pagina + .nuage-bloco-pagina {
+  padding-block-start: var(--nuage-espaco-5);
+  border-top: var(--nuage-espessura-borda) solid var(--nuage-divisoria);
+}
+
+/* Sobretítulo: rótulo visual, não um novo nível semântico. */
+.nuage-sobretitulo {
+  display: flex;
+  align-items: center;
+  gap: var(--nuage-espaco-2);
+  max-width: none;
+  font-family: var(--nuage-fonte-subtitulo);
+  font-size: var(--nuage-escala-micro);
+  font-weight: var(--nuage-peso-subtitulo);
+  letter-spacing: var(--nuage-letra-sobretitulo);
+  text-transform: uppercase;
+  color: var(--nuage-texto-secundario);
+}
+
+.nuage-sobretitulo::before {
+  content: '';
+  display: block;
+  width: 1.75rem;
+  height: 2px;
+  background-color: var(--nuage-destaque);
+}
+
+.nuage-sobretitulo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nuage-sobretitulo a:hover {
+  text-decoration: underline;
+}
+
+/* Status e avisos, com faixa pink na borda esquerda. */
+.nuage-status,
+.nuage-faixa {
+  max-width: none;
+  padding: var(--nuage-espaco-3);
+  border: var(--nuage-espessura-borda) solid var(--nuage-borda);
+  border-inline-start: 3px solid var(--nuage-destaque);
+  border-radius: var(--nuage-raio-medio);
+  background-color: var(--nuage-superficie);
+  color: var(--nuage-texto);
+}
+
+/* =========================================================
+   Listas
+   ========================================================= */
+.nuage-lista-modulos,
+.nuage-lista-cartoes,
+.nuage-lista-resultados {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nuage-espaco-3);
+  width: 100%;
+  list-style: none;
+}
+
+.nuage-lista-cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+}
+
+/* Cartão navegável em linha: título + seta. */
+.nuage-cartao-linha {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nuage-faixa-indicadores,
+.nuage-barra,
+.nuage-segmentos,
+.nuage-status,
+.nuage-faixa {
+  width: 100%;
+}
+
+/* =========================================================
+   Formulários
+   ========================================================= */
+.nuage-formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--nuage-espaco-3);
+  width: min(100%, 38rem);
+  padding: var(--nuage-espaco-4);
+  border: var(--nuage-espessura-borda) solid var(--nuage-borda);
+  border-radius: var(--nuage-raio-grande);
+  background-color: var(--nuage-superficie);
+}
+
+.nuage-campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nuage-espaco-1);
+  border: 0;
+}
+
+.nuage-campo-grupo legend {
+  padding: 0;
+  font-family: var(--nuage-fonte-subtitulo);
+  font-size: var(--nuage-escala-apoio);
+  font-weight: var(--nuage-peso-subtitulo);
+  color: var(--nuage-titulo);
+}
+
+.nuage-opcao {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nuage-espaco-2);
+  margin-inline-end: var(--nuage-espaco-4);
+}
+
+/* =========================================================
+   Glossário
+   ========================================================= */
+.nuage-glossario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nuage-espaco-3);
+  width: 100%;
+}
+
+.nuage-glossario dt {
+  font-family: var(--nuage-fonte-titulo);
+  font-size: var(--nuage-escala-titulo-3);
+  font-weight: var(--nuage-peso-subtitulo);
+  color: var(--nuage-titulo);
+}
+
+.nuage-glossario dd {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nuage-espaco-2);
+}
+
+/* =========================================================
+   Página de seção: cabeçalho fixo e navegação entre vizinhos
+   ========================================================= */
+.nuage-secao-cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: var(--nuage-espaco-2);
+  padding-block: var(--nuage-espaco-3);
+  background-color: var(--nuage-fundo);
+  border-bottom: var(--nuage-espessura-borda) solid var(--nuage-divisoria);
+}
+
+.nuage-navegacao-vizinhos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nuage-espaco-3);
+  padding-block-start: var(--nuage-espaco-4);
+  border-top: var(--nuage-espessura-borda) solid var(--nuage-divisoria);
+}
+
+.nuage-navegacao-vizinhos > :empty {
+  min-width: 8rem;
+}
+
+.nuage-navegacao-vizinhos a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nuage-espaco-2);
+}
+
+/* O cabeçalho da seção já traz a divisória inferior: a primeira seção não repete o filete. */
+.nuage-secao-cabecalho + .nuage-secao {
+  padding-block-start: 0;
+  border-top: 0;
+}
+
+/* Campos soltos em um bloco de página não esticam além de uma largura de leitura confortável. */
+.nuage-bloco-pagina > .nuage-campo-grupo,
+.nuage-pagina > .nuage-campo-grupo {
+  width: min(100%, 28rem);
+}
+
+/* =========================================================
+   Composição do chat
+   ========================================================= */
+.nuage-chat-painel header {
+  background-color: var(--nuage-superficie-sutil);
+}
+
+.nuage-chat-painel textarea {
+  resize: vertical;
+  min-height: 5.5rem;
+  width: 100%;
+  padding: var(--nuage-espaco-2) var(--nuage-espaco-3);
+  border: var(--nuage-espessura-borda) solid var(--nuage-borda);
+  border-radius: var(--nuage-raio-medio);
+  background-color: var(--nuage-superficie);
+  color: var(--nuage-texto);
+}
+
+.nuage-chat-painel textarea:hover,
+.nuage-chat-painel textarea:focus {
+  border-color: var(--nuage-borda-ativa);
+}
+
+.nuage-chat-painel .nuage-botao {
+  width: 100%;
+}
+
+/* =========================================================
+   Responsividade
+   ========================================================= */
+
+/* Abaixo de 64rem a barra lateral vira faixa no topo; a navegação continua disponível. */
+@media (max-width: 63.999rem) {
+  .nuage-barra-lateral {
+    position: static;
+    width: 100%;
+    max-height: none;
+    gap: var(--nuage-espaco-4);
+  }
+
+  .nuage-area-conteudo {
+    padding-inline-start: 0;
+  }
+
+  .nuage-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--nuage-espaco-3) var(--nuage-espaco-5);
+  }
+
+  .nuage-lista-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nuage-item-nav {
+    width: auto;
+  }
+
+  .nuage-cartao-usuario {
+    margin-top: 0;
+  }
+
+  .nuage-secao-cabecalho {
+    position: static;
+  }
+}
+
+@media (max-width: 48rem) {
+  .nuage-corpo {
+    padding: var(--nuage-espaco-5) var(--nuage-espaco-3);
+  }
+
+  .nuage-container {
+    padding-inline: var(--nuage-espaco-3);
+  }
+
+  .nuage-pagina {
+    gap: var(--nuage-espaco-5);
+  }
+
+  .nuage-pagina-cabecalho h1 {
+    max-width: none;
+  }
+
+  .nuage-cartao-modulo {
+    grid-template-columns: 1fr;
+  }
+
+  .nuage-navegacao-vizinhos > :empty {
+    display: none;
+  }
+
+  .nuage-indicador + .nuage-indicador {
+    border-inline-start: 0;
+    border-top: var(--nuage-espessura-borda) solid var(--nuage-divisoria);
+  }
+
+  .nuage-rodape {
+    padding-inline-end: var(--nuage-espaco-3);
+    padding-block-end: 5rem;
+  }
+
+  .nuage-formulario {
+    padding: var(--nuage-espaco-3);
+  }
+}
