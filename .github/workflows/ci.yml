@@ -212,6 +212,9 @@ jobs:
     name: e2e
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/playwright:v1.64.0-noble
+    env:
+      # URL de teste não sensível exigida pelo build do App_Web.
+      VITE_URL_SERVICO_CHAT: http://localhost:3333
     steps:
       - name: Checkout
         uses: actions/checkout@v7

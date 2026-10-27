@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playbook de SDR - NuageHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="NuageHub - Página Inicial">
+        <div class="logo-icon"><i data-lucide="sparkles"></i></div>
+        <div class="logo-text">Nuage<span>Hub</span></div>
+      </a>
+
+      <nav class="nav-bar" aria-label="Navegação principal">
+        <a href="index.html" class="nav-btn">
+          <i data-lucide="house"></i>
+          <span>Página Inicial</span>
+        </a>
+        <a href="primeiros-passos.html" class="nav-btn">
+          <i data-lucide="compass"></i>
+          <span>Primeiros passos</span>
+        </a>
+        <a href="plataformas.html" class="nav-btn">
+          <i data-lucide="layers"></i>
+          <span>Plataformas</span>
+        </a>
+        <a href="playbook.html" class="nav-btn active" aria-current="page">
+          <i data-lucide="book-open"></i>
+          <span>Playbook</span>
+        </a>
+      </nav>
+
+      <div class="user-badge">Novo SDR</div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL: PLAYBOOK SDR -->
+  <main class="article-wrap">
+    
+    <!-- Hero / Intro -->
+    <section class="page-hero">
+      <div class="pill-badge">
+        <i data-lucide="book-open"></i>
+        <span>Manual Tático de Vendas</span>
+      </div>
+      <h1 class="hero-title">Playbook de SDR</h1>
+      <p class="hero-description">
+        Metodologias de prospecção outbound, scripts de abordagem em nuvem AWS, cadências multicanal e critérios de passagem de bastão para os Account Managers (AMs).
+      </p>
+    </section>
+
+    <!-- 01. MISSÃO & POSICIONAMENTO DO SDR -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">01</span>
+        <h2 class="topic-title">Missão & ICP (Perfil de Cliente Ideal)</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Objetivo Principal</h3>
+        <p class="subtopic-desc">
+          O papel do SDR na NuageIT não é vender o projeto final, mas sim <strong>despertar interesse técnico e comercial no tomador de decisão</strong> (CTO, Head de Engenharia, Gerente de TI ou CFO) para agendar uma reunião qualificada com o nosso <strong>Account Manager (AM)</strong>.
+        </p>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Quem buscamos (ICP)</h3>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Empresas On-Premises:</strong> Operações com infraestrutura local querendo migrar para nuvem AWS com segurança e redução de risco.
+          </li>
+          <li class="bullet-item">
+            <strong>Empresas já em Nuvem:</strong> Ambientes com gastos fora de controle (dores de FinOps), falta de automação (DevOps) ou vulnerabilidades de segurança.
+          </li>
+          <li class="bullet-item">
+            <strong>Interlocutores-chave:</strong> Diretores de TI, CTOs, Tech Leads, Gerentes de Infraestrutura e Líderes de Inovação/Dados.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 02. FLUXO DE CADÊNCIA MULTICANAL -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">02</span>
+        <h2 class="topic-title">Cadência de Prospecção Outbound</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Estrutura dos 10 Primeiros Dias</h3>
+        <p class="subtopic-desc">
+          Utilizamos uma cadência mista alternando <strong>LinkedIn, E-mail e Cold Call</strong> para maximizar as taxas de resposta e engajamento:
+        </p>
+
+        <div class="cadence-grid">
+          <div class="cadence-step">
+            <span class="cadence-day">Dia 1 • Conexão</span>
+            <span class="cadence-action">LinkedIn + Visita de Perfil</span>
+            <span class="cadence-detail">Conexão sem pitch invasivo, focado em temas de Cloud/AWS.</span>
+          </div>
+
+          <div class="cadence-step">
+            <span class="cadence-day">Dia 2 • Primeiro E-mail</span>
+            <span class="cadence-action">Cold E-mail Personalizado</span>
+            <span class="cadence-detail">Abordagem de dor específica (ex: custos AWS ou migração).</span>
+          </div>
+
+          <div class="cadence-step">
+            <span class="cadence-day">Dia 4 • Ligação Direta</span>
+            <span class="cadence-action">Cold Call Inicial</span>
+            <span class="cadence-detail">Checagem de recebimento do e-mail e gancho rápido de 30s.</span>
+          </div>
+
+          <div class="cadence-step">
+            <span class="cadence-day">Dia 7 • Interação Social</span>
+            <span class="cadence-action">Mensagem LinkedIn / InMail</span>
+            <span class="cadence-detail">Compartilhamento de case NuageIT ou competência AWS.</span>
+          </div>
+
+          <div class="cadence-step">
+            <span class="cadence-day">Dia 10 • Break-up</span>
+            <span class="cadence-action">E-mail de Despedida</span>
+            <span class="cadence-detail">Porta aberta com tom cordial liberando a caixa de entrada.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. SCRIPTS & PITCH DE ELEVADOR -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">03</span>
+        <h2 class="topic-title">Roteiro de Cold Call & Abordagem</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Pitch de Abertura (30 Segundos)</h3>
+        <p class="subtopic-desc">
+          Na ligação, seja direto, respeitoso e foque nas competências da NuageIT:
+        </p>
+        <div class="script-box">
+          "Olá [Nome], tudo bem? Aqui é o [Seu Nome], da NuageIT. Sei que você deve estar ocupado, prometo ser breve: somos parceiros de engenharia especializados em AWS e ajudamos empresas como a sua a otimizar custos de nuvem, modernizar infraestruturas e acelerar projetos DevOps. Como está o foco de vocês hoje na gestão do ambiente Cloud?"
+        </div>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Quebra de Objeções Comuns</h3>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>"Já temos uma equipe interna cuidando disso":</strong> Excelente! Nós não substituímos seu time; atuamos como braço especializado em arquiteturas avançadas, migração e auditorias de custo que aliviam a carga da sua equipe.
+          </li>
+          <li class="bullet-item">
+            <strong>"Não temos orçamento para projetos agora":</strong> Perfeito. Nossos projetos de FinOps, por exemplo, costumam gerar economia imediata na fatura AWS logo nas primeiras semanas, pagando o próprio investimento.
+          </li>
+          <li class="bullet-item">
+            <strong>"Me mande um e-mail com apresentação":</strong> Claro! Para enviar apenas o que for relevante para o seu cenário: hoje a prioridade seria reduzir custos, segurança ou migrar novas cargas?
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04. QUALIFICAÇÃO & PASSAGEM DE BASTÃO -->
+    <section class="topic-section">
+      <div class="topic-header">
+        <span class="topic-number">04</span>
+        <h2 class="topic-title">Qualificação & Passagem para o AM</h2>
+      </div>
+
+      <div class="subtopic">
+        <h3 class="subtopic-title">Checklist Mínimo para Agendamento</h3>
+        <p class="subtopic-desc">
+          Antes de criar o evento na agenda do Account Manager e registrar no Zoho, garanta que levantou:
+        </p>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <strong>Cenário Atual:</strong> Utilizam AWS, outra nuvem ou servidores locais?
+          </li>
+          <li class="bullet-item">
+            <strong>Dor ou Desafio:</strong> Qual o gargalo atual (custos altos, segurança, lentidão, projeto novo)?
+          </li>
+          <li class="bullet-item">
+            <strong>Autoridade:</strong> Quem participará da conversa (CTO, Coordenador, Gerente)?
+          </li>
+          <li class="bullet-item">
+            <strong>Registro completo:</strong> Adicione o resumo no Zoho e envie o convite com link da sala com o AM em cópia.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 NuageIT • Portal de Integração & Rampa de Novos Colaboradores</p>
+  </footer>
+</body>
+</html>
