@@ -1,4 +1,3 @@
-import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -68,16 +67,9 @@ describe('Repositório real', () => {
     expect(misplacedPy).toEqual([]);
   });
 
-  it('preserva o Site_Legado byte a byte (Req. 18.2, 18.3)', () => {
-    const baseline = JSON.parse(
-      readFileSync(join(ROOT, 'packages/standards/test/fixtures/legacy-baseline.json'), 'utf8'),
-    ) as { files: Record<string, string> };
-    expect(Object.keys(baseline.files)).toHaveLength(6);
-    for (const [file, hash] of Object.entries(baseline.files)) {
-      const actual = createHash('sha256')
-        .update(readFileSync(join(ROOT, file)))
-        .digest('hex');
-      expect(actual, file).toBe(hash);
-    }
+  it('não mantém arquivos do Site_Legado na raiz (Spec legacy-migration, Req. 9.3)', () => {
+    const legacy = ['index.html', 'primeiros-passos.html', 'plataformas.html', 'playbook.html'];
+    const remaining = listRepoFiles(ROOT).filter((p) => legacy.includes(p) || /^(css|js)\//.test(p));
+    expect(remaining).toEqual([]);
   });
 });

@@ -11,13 +11,10 @@
     "lint": "eslint .",
     "typecheck": "tsc -p tsconfig.json",
     "test": "vitest run",
-    "e2e": "node -e \"console.log('e2e do portal SDR desativado temporariamente; veja docs/onboarding-solutions-migracao.md')\"",
-    "e2e:sdr-desativado": "playwright test --project=e2e --project=visual",
-    "e2e:baseline": "playwright test --project=legacy-baseline --update-snapshots"
+    "e2e": "playwright test --project=e2e --project=visual"
   },
   "dependencies": {
     "@fontsource/inter": "5.3.0",
-    "@fontsource/montserrat": "5.3.0",
     "@nuagehub/contracts": "workspace:*",
     "lucide-react": "1.53.0",
     "openapi-fetch": "0.17.0",

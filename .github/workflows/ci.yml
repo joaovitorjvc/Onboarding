@@ -28,7 +28,7 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - name: Configurar uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.3.0
       - name: Instalar dependências JavaScript
         run: pnpm install --frozen-lockfile
       - name: Verificar padrões
@@ -49,9 +49,9 @@ jobs:
         shell: bash
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            changed_files="$(git diff --name-only origin/${{ github.base_ref }}...HEAD | while IFS= read -r file; do [[ -f "$file" ]] && printf '%s\n' "$file"; done)"
+            changed_files="$(git diff --name-only origin/${{ github.base_ref }}...HEAD | while IFS= read -r file; do if [[ -f "$file" ]]; then printf '%s\n' "$file"; fi; done)"
           else
-            changed_files="$(git diff --name-only HEAD^ HEAD | while IFS= read -r file; do [[ -f "$file" ]] && printf '%s\n' "$file"; done)"
+            changed_files="$(git diff --name-only HEAD^ HEAD | while IFS= read -r file; do if [[ -f "$file" ]]; then printf '%s\n' "$file"; fi; done)"
           fi
           if [[ -n "$changed_files" ]]; then
             pnpm security:scan $changed_files
@@ -92,7 +92,7 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - name: Configurar uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.3.0
       - name: Instalar dependências JavaScript
         run: pnpm install --frozen-lockfile
       - name: Lint
@@ -100,7 +100,7 @@ jobs:
       - name: Typecheck
         run: pnpm --filter @nuagehub/web typecheck
       - name: Testes com cobertura Cobertura
-        run: pnpm --filter @nuagehub/web test -- --coverage --coverage.reporter=cobertura
+        run: pnpm --filter @nuagehub/web test --coverage --coverage.reporter=cobertura
       - name: Publicar cobertura Web
         uses: actions/upload-artifact@v7
         with:
@@ -126,7 +126,7 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - name: Configurar uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.3.0
       - name: Instalar dependências JavaScript
         run: pnpm install --frozen-lockfile
       - name: Lint
@@ -134,7 +134,7 @@ jobs:
       - name: Typecheck
         run: pnpm --filter @nuagehub/api typecheck
       - name: Testes com cobertura Cobertura
-        run: pnpm --filter @nuagehub/api test -- --coverage --coverageReporters=cobertura
+        run: pnpm --filter @nuagehub/api test --coverage --coverageReporters=cobertura
       - name: Publicar cobertura API
         uses: actions/upload-artifact@v7
         with:
@@ -156,7 +156,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Configurar uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.3.0
       - name: Configurar Python
         uses: actions/setup-python@v7
         with:
@@ -201,7 +201,7 @@ jobs:
         with:
           path: coverage
       - name: Configurar uv
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.3.0
       - name: Verificar cobertura do diff
         shell: bash
         run: |
@@ -212,6 +212,9 @@ jobs:
     name: e2e
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/playwright:v1.64.0-noble
+    env:
+      # URL de teste não sensível exigida pelo build do App_Web.
+      VITE_URL_SERVICO_CHAT: http://localhost:3333
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -229,6 +232,8 @@ jobs:
       - name: Configurar pnpm
         if: steps.filter.outputs.e2e == 'true'
         run: |
+          # O container roda com outro usuário; sem isso o git (e o lefthook install) recusa o checkout.
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           corepack enable
           corepack prepare pnpm@10.34.6 --activate
       - name: Instalar dependências JavaScript

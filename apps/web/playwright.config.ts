@@ -21,7 +21,7 @@ export default defineConfig({
       maxDiffPixelRatio: 0.02,
     },
   },
-  snapshotPathTemplate: '{testDir}/__screenshots__/{arg}{ext}',
+  snapshotPathTemplate: '{testDir}/__screenshots__/{arg}-{platform}{ext}',
   reporter: process.env.CI ? [['line'], ['html', { outputFolder: 'playwright-report', open: 'never' }]] : 'line',
   use: {
     ...devices['Desktop Chrome'],
@@ -46,20 +46,8 @@ export default defineConfig({
       timeout: 120_000,
       reuseExistingServer: !process.env.CI,
     },
-    {
-      command: 'node apps/web/e2e/serve-legacy.mjs',
-      cwd: repositoryRoot,
-      url: 'http://127.0.0.1:4180',
-      timeout: 30_000,
-      reuseExistingServer: !process.env.CI,
-    },
   ],
   projects: [
-    {
-      name: 'legacy-baseline',
-      testMatch: /legacy-baseline\.e2e\.test\.ts/,
-      use: { ...devices['Desktop Chrome'], baseURL: 'http://127.0.0.1:4180' },
-    },
     {
       name: 'visual',
       testMatch: /visual\.e2e\.test\.ts/,

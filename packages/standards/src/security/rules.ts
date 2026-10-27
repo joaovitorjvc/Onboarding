@@ -71,7 +71,8 @@ export const SECURITY_RULES: readonly Rule[] = [
     'dynamic-eval',
     'dynamic-eval',
     [...javascript, ...python],
-    /\b(?:eval|exec)\s*\(\s*(?!["'`])[^)]/,
+    // Ignora chamadas de método, como RegExp.prototype.exec(texto).
+    /(?<!\.)\b(?:eval|exec)\s*\(\s*(?!["'`])[^)]/,
     'Remova a execução dinâmica; use um parser ou uma lista explícita de operações permitidas.',
   ),
   rule(

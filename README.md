@@ -1,11 +1,11 @@
 # NuageHub
 
-O NuageHub é o portal de onboarding da NuageIT. Este repositório é um Monorepo que reúne o frontend React (Plataforma Onboarding Solutions), a API NestJS, módulos Python de IA e pacotes compartilhados. O Site_Legado continua na raiz, intocado, enquanto a migração não é concluída.
+O NuageHub é o portal de onboarding da NuageIT, com foco inicial em novos SDRs. Este repositório é um Monorepo que reúne o frontend React, a API NestJS, módulos Python de IA e pacotes compartilhados. O portal é servido pelo App_Web, que lê o conteúdo das páginas do App_API.
 
 ## Estrutura do Monorepo
 
-- `apps/web`: App_Web em React, Vite, TypeScript e Vitest. Contém a Plataforma Onboarding Solutions (Trilha de 11 Módulos, progresso, triagem, busca, glossário, referências, pendências e chat). Veja `docs/onboarding-solutions-migracao.md`.
-- `apps/api`: App_API em NestJS, com endpoint público de saúde e contratos OpenAPI. O site novo **não** consome mais esta API.
+- `apps/web`: App_Web em React, Vite, TypeScript e Vitest, com as páginas do portal.
+- `apps/api`: App_API em NestJS, com endpoints públicos de saúde e de conteúdo das páginas e contratos OpenAPI.
 - `services/ai/{nome-do-modulo}`: Modulos_IA em Python, gerenciados individualmente por uv.
 - `packages/contracts`: Formato_de_Erro e tipos gerados a partir do OpenAPI.
 - `packages/standards`: Verificador_de_Padroes, CLIs e utilitários dos hooks.
@@ -44,55 +44,6 @@ uv sync --locked --directory services/ai/example
 
 As dependências já estão declaradas com versões exatas nos manifestos e lockfiles. Variáveis necessárias ficam documentadas nos arquivos `.env.example`; não coloque segredos no repositório.
 
-## Rodar o site localmente
-
-O site (App_Web) lê todo o conteúdo localmente e **não precisa da API** para funcionar.
-
-1. Instale as dependências (seção anterior).
-2. Crie o arquivo de ambiente do web:
-
-   ```sh
-   cp apps/web/.env.example apps/web/.env
-   ```
-
-   No PowerShell: `Copy-Item apps/web/.env.example apps/web/.env`.
-
-3. Inicie o site:
-
-   ```sh
-   pnpm --filter @nuagehub/web dev
-   ```
-
-4. Abra o endereço exibido pelo Vite (normalmente `http://localhost:5173`).
-
-Variáveis de `apps/web/.env`:
-
-- `VITE_URL_SERVICO_CHAT`: URL do Serviço de Chat (padrão `http://localhost:3333`). É **opcional no `dev`**: sem ela o site abre e o chat informa que não está configurado. É **obrigatória no build**, que falha se ela estiver ausente ou não for uma URL `http`/`https`.
-- `VITE_API_BASE_URL`: usada apenas pelo código do portal SDR anterior, hoje sem uso na aplicação.
-
-O Serviço de Chat é um back-end separado (repositório `onboarding-solutions-back`), que não faz parte deste Monorepo. Para testar o chat, suba esse serviço na URL configurada; o `apps/api` deste repositório não responde `/api/chat`.
-
-Para gerar o build estático e conferi-lo:
-
-```sh
-# defina VITE_URL_SERVICO_CHAT no apps/web/.env (ou no ambiente) antes do build
-pnpm --filter @nuagehub/web build
-pnpm --filter @nuagehub/web preview
-```
-
-O build publica `dist/conteudo-chat.json`, o corpus usado pelo chat.
-
-### Rodar a API (opcional)
-
-A API não é necessária para o site novo. Para executá-la:
-
-```sh
-cp apps/api/.env.example apps/api/.env   # defina NODE_ENV, API_PORT, API_CORS_ORIGIN e LOG_LEVEL
-pnpm --filter @nuagehub/api dev
-```
-
-Ela responde em `http://localhost:3000` (`GET /api/v1/health`). `pnpm dev` na raiz inicia todas as stacks em paralelo; para trabalhar só no site, prefira o comando `--filter @nuagehub/web` acima.
-
 ## Comandos padronizados
 
 Na raiz, os comandos aceitam `--affected` para executar somente as stacks afetadas:
@@ -129,9 +80,15 @@ No Kiro CLI, selecione o agente de projeto `nuagehub`, definido em `.kiro/agents
 
 No Claude Code, mantenha `CLAUDE.md` como contexto inicial e use as regras escopadas em `.claude/rules/`. A Constituição prevalece em caso de conflito.
 
-## Site_Legado intocável
+## Executar o portal
 
-As páginas atuais permanecem na raiz. Elas **não** são o site executado por `pnpm --filter @nuagehub/web dev` (veja "Rodar o site localmente"); para abrir a versão legada, abra `index.html` diretamente no navegador. As demais páginas são `primeiros-passos.html`, `plataformas.html` e `playbook.html`. Não altere, formate ou migre os HTML, `css/**` ou `js/**` fora da Spec `legacy-migration`. Consulte `docs/legacy-migration-backlog.md` para o escopo futuro.
+```sh
+pnpm dev
+```
+
+O comando inicia o App_API e o App_Web. As rotas são `/`, `/primeiros-passos`, `/plataformas` e `/playbook`; as URLs antigas (`/index.html`, `/primeiros-passos.html`, `/plataformas.html` e `/playbook.html`) redirecionam para elas. O checklist continua salvo no navegador com a chave `nuagehub-checklist`. As variáveis de cada aplicação estão nos arquivos `.env.example` e nos READMEs de `apps/web` e `apps/api`.
+
+O site estático original foi removido ao fim da Spec `legacy-migration`; veja o [ADR-0005](docs/adr/0005-conclusao-da-migracao-do-legado.md) e o histórico em `docs/legacy-migration-backlog.md`.
 
 ## Proteção da branch `main`
 

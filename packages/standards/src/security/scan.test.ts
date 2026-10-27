@@ -32,6 +32,11 @@ describe('scanner de segurança', () => {
     expect(scan('imagem.bin', `texto\0${secret}`)).toEqual([]);
   });
 
+  it('não confunde RegExp.prototype.exec com execução dinâmica', () => {
+    expect(scan('parser.ts', 'const match = PATTERN.exec(markdown);')).toEqual([]);
+    expect(scan('parser.ts', `${['ex', 'ec('].join('')}entrada)`).map((f) => f.category)).toEqual(['dynamic-eval']);
+  });
+
   it('aponta arquivo, linha, categoria e sugestão na decisão bloqueante', () => {
     const findings = scan('src/arquivo.ts', `linha segura\n${blockingExamples[0]?.snippet ?? ''}`);
     const decision = decide(findings);

@@ -366,10 +366,10 @@ Detecção por categoria (exemplos, não exaustivos):
 |-----------|--------|
 | `hardcoded-secret` | prefixos conhecidos (`AKIA[0-9A-Z]{16}`, `ghp_`, `sk-`, `xox[bp]-`, `-----BEGIN .*PRIVATE KEY-----`); atribuição de literal ≥ 16 caracteres com alta entropia a identificador `/(secret|token|password|api[_-]?key)/i`. Arquivos `.env.example` e valores vazios/placeholder (`changeme`, `<...>`) são ignorados. |
 | `sql-injection` | template literal ou concatenação com interpolação dentro de string que começa com `SELECT|INSERT|UPDATE|DELETE`; `f"SELECT ... {x}"`; `.query(\`...${` / `.execute(f"...`. |
-| `command-injection` | `exec(`/`execSync(` com interpolação; `child_process` com `shell: true` e entrada interpolada; `subprocess.*(..., shell=True)`; `os.system(` com f-string ou concatenação. |
+| `command-injection` | `exec(`/`execSync(` com interpolação; `child_process` com a opção `shell` ativada e entrada interpolada; `subprocess.*` com `shell` igual a `True`; `os.system(` com f-string ou concatenação. |
 | `dynamic-eval` | `eval(` ou `new Function(` com argumento não literal; Python `eval(`/`exec(` com argumento não literal. |
-| `unsafe-html` | `dangerouslySetInnerHTML={{ __html: X }}` em que X não é chamada de `sanitizeHtml(`/`DOMPurify.sanitize(`. |
-| alertas | `pickle.loads`, `yaml.load(` sem `SafeLoader`; `rejectUnauthorized: false`, `NODE_TLS_REJECT_UNAUTHORIZED`, `verify=False`; `origin: '*'`/`allow_origins=["*"]`; `createHash('md5'|'sha1')`, `hashlib.md5`. |
+| `unsafe-html` | `dangerouslySetInnerHTML` cujo `__html` não é chamada de `sanitizeHtml(`/`DOMPurify.sanitize(`. |
+| alertas | `pickle.loads`, `yaml.load(` sem `SafeLoader`; `rejectUnauthorized` igual a `false`, `NODE_TLS_REJECT_UNAUTHORIZED`, `verify` igual a `False`; `origin` ou `allow_origins` com `*`; `createHash` com `md5` ou `sha1`, `hashlib.md5`. |
 
 Supressão (Req. 4.10): `// security-ignore: <categoria> -- <justificativa>` ou `# security-ignore: ...` na mesma linha ou na linha anterior. Sem justificativa não vazia, a supressão é inválida e gera um Achado_de_Alerta `invalid-suppression`. A supressão vale só para a categoria citada.
 

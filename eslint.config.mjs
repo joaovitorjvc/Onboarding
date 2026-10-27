@@ -5,8 +5,9 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import globals from 'globals';
 
-// Mesma lista de standards.config.json (legacyPaths). Conferida pelo Verificador_de_Padroes (Req. 18.5).
-const legacyPaths = ['index.html', 'primeiros-passos.html', 'plataformas.html', 'playbook.html', 'css/**', 'js/**'];
+// Mesma lista de standards.config.json (legacyPaths), vazia desde a remoção do Site_Legado (ADR-0005).
+// Conferida pelo Verificador_de_Padroes (Req. 18.5).
+const legacyPaths = [];
 
 export default tseslint.config(
   {
